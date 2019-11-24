@@ -9,6 +9,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        // Nuestras cosas
+        setContentView(R.layout.login_activity);
+
+        Dog dog = new Dog(4, "Nymeria", 2);
+        Cat cat = new Cat(4, "Sugus", 7);
+
+        dog.eat();
+        cat.eat();
     }
 }
