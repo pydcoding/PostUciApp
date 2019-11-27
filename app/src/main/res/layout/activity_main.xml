@@ -7,13 +7,14 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_enter_as"
         android:layout_marginBottom="16dp"/>
 
     <Button
+        android:id="@+id/patient_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -28,6 +29,7 @@
         android:layout_marginBottom="16dp"/>
 
     <Button
+        android:id="@+id/medic_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
