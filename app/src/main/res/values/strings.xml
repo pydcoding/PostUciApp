@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PostUciApp</string>
+
+    <string name="login_enter_as">Entrar como:</string>
+    <string name="login_or">o</string>
+
+    <string name="login_patient">Paciente</string>
+    <string name="login_medic">Profesional sanitario</string>
 </resources>
