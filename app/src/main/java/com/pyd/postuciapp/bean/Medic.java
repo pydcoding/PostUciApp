@@ -1,4 +1,4 @@
-package com.pyd.postuciapp.beans;
+package com.pyd.postuciapp.bean;
 
 public class Medic {
     // Numero de identificacion
