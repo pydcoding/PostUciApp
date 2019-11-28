@@ -1,8 +1,10 @@
 package com.pyd.postuciapp.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -11,11 +13,16 @@ import com.pyd.postuciapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private enum Type {
+        PATIENT,
+        MEDIC
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         initButtons();
     }
@@ -37,5 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Cucu, soy un médico", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private AlertDialog buildLoginDialog(Type type) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.MyDialogTheme);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        return null;
     }
 }

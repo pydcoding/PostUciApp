@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#DDDDDD</color>
+    <color name="colorPrimaryDark">#888888</color>
+    <color name="colorAccent">#5FA4C9</color>
 
-    <color name="colorRedText">#FF0000</color>
+    <color name="colorText">#333333</color>
+
+    <color name="colorTextView">#FBFDF9</color>
+    <color name="colorDarkerText">#393939</color>
+    <color name="colorMediumText">#939393</color>
+    <color name="colorLightText">#CACACA</color>
+    <color name="colorLight">#EAEAEA</color>
+
+    <color name="colorItemChecked">#F5F5F5</color>
+
+    <color name="colorBackgroundNavigationView">#F5F5F5</color>
+    <color name="colorDividerList">#FFA4A4A4</color>
+
+    <color name="mb_white">#ffffff</color>
+    <color name="mb_blue">#ff0099cc</color>
+    <color name="mb_blue_dark">#ff00719b</color>
+    <color name="mb_purple">#ffaa66cc</color>
+    <color name="mb_purple_dark">#ff8855aa</color>
+    <color name="mb_green">#ff99cc00</color>
+    <color name="mb_green_dark">#ff6d9b00</color>
+    <color name="mb_red">#ffff4444</color>
+    <color name="mb_red_dark">#ffcd3a3a</color>
+    <color name="mb_gray">#ffdedede</color>
+
+    <color name="cpb_grey">#ffdedede</color>
+    <color name="cpb_blue">#ff0099cc</color>
+    <color name="cpb_blue_dark">#ff00719b</color>
+    <color name="cpb_red">#ffff4444</color>
+    <color name="cpb_red_dark">#ffcd3a3a</color>
+    <color name="cpb_green">#ff99cc00</color>
+    <color name="cpb_green_dark">#ff6d9b00</color>
+    <color name="cpb_white">@android:color/white</color>
+
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_red_light">#ffff4444</color>
 </resources>

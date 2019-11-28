@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".activity.LoginActivity">
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_enter_as"
+        android:textColor="@color/colorText"
         android:layout_marginBottom="16dp"/>
 
     <Button
@@ -20,12 +22,15 @@
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/login_patient"/>
+        android:text="@string/login_patient"
+        android:textColor="@color/colorText"
+        android:background="@color/colorAccent"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_or"
+        android:textColor="@color/colorText"
         android:layout_marginBottom="16dp"/>
 
     <Button
@@ -34,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
         android:layout_marginStart="64dp"
-        android:text="@string/login_medic"/>
+        android:text="@string/login_medic"
+        android:textColor="@color/colorText"
+        android:background="@color/colorAccent"/>
 
 </LinearLayout>
