@@ -1,4 +1,4 @@
-package com.pyd.postuciapp.View;
+package com.pyd.postuciapp.view;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;

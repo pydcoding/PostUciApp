@@ -1,4 +1,4 @@
-package com.pyd.postuciapp.View;
+package com.pyd.postuciapp.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
