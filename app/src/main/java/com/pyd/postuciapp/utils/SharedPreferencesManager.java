@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 public class SharedPreferencesManager {
+
     private static final String KEY_LOGGED_IN = "logged_in";
 
     private static SharedPreferences mSharedPreferences;

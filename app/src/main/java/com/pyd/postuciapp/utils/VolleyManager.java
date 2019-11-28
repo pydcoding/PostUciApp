@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley;
 import org.jetbrains.annotations.NotNull;
 
 public class VolleyManager {
+
     private static final int REQUEST_TIMEOUT = 60000;
     private static final int MAX_NUM_RETRIES = 2;
     private static final int BACK_OFF_MULTIPLIER = 0;
