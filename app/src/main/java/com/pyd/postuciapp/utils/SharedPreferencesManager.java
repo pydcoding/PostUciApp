@@ -19,6 +19,7 @@ public class SharedPreferencesManager {
 
     /**
      * Metodo que elimina las preferencias.
+     *
      * @return true si se han borrado correctamentes
      */
     public synchronized boolean clear() {
@@ -27,6 +28,7 @@ public class SharedPreferencesManager {
 
     /**
      * Metodo que inserta si el usuario esta logueado.
+     *
      * @param loggedIn: true si el usuario esta logeado
      * @return true si se ha insertado correctamente.
      */
@@ -39,6 +41,7 @@ public class SharedPreferencesManager {
 
     /**
      * Metodo que devuelve si el usuario esta logueado.
+     *
      * @return true si el usuario esta logeado.
      */
     public boolean isLoggedIn() {

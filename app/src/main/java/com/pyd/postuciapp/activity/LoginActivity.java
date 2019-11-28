@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private AlertDialog buildLoginDialog(Type type) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this, R.style.MyDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 
         LayoutInflater inflater = this.getLayoutInflater();
 
