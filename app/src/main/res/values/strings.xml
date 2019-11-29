@@ -13,12 +13,10 @@
     <string name="cancel"><b>Cancelar</b></string>
 
     <string name="sign_up">Registro</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Contraseña</string>
+    <string name="dni_hint">DNI</string>
     <string name="name_hint">Nombre</string>
+    <string name="password_hint">Contraseña</string>
 
-    <string name="login_login">Iniciar sesión</string>
-    <string name="login_sign_up">Registrarse</string>
     <string name="login_sign_in">Entrar</string>
     <string name="create_account">Crear cuenta</string>
     <string name="remember_me">Recordarme</string>
@@ -29,6 +27,7 @@
     <string name="register_ok">Te has registrado correctamente\n\nPulsa para continuar</string>
 
     <string name="sign_in_info">Necesitas tener creada una cuenta para entrar en la aplicación</string>
+    <string name="sign_up_header">Registro</string>
 
     <string name="progress_authenticating">Iniciando sesión</string>
 </resources>
