@@ -21,8 +21,6 @@
     <string name="create_account">Crear cuenta</string>
     <string name="remember_me">Recordarme</string>
     <string name="forget_password"><u>¿Has olvidado la contraseña?</u></string>
-    <string name="existing_email">El correo ya ha sido registrado</string>
-    <string name="email_sent">Hemos enviado tu contraseña a tu correo</string>
     <string name="login_ok">Te has logueado correctamente\n\nPulsa para continuar</string>
     <string name="register_ok">Te has registrado correctamente\n\nPulsa para continuar</string>
 

@@ -56,7 +56,7 @@
                 android:theme="@style/TextLabel">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/email_edittext"
+                    android:id="@+id/dni_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
