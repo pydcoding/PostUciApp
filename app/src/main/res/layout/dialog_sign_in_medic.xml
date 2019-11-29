@@ -25,17 +25,6 @@
                 android:textColor="@color/colorText"
                 android:text="@string/sign_in_info"/>
 
-            <!-- Crear cuenta -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/create_account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:text="@string/create_account"
-                android:textColor="@android:color/white"
-                style="@style/Base.Widget.AppCompat.Button.Colored"/>
-
             <!-- Separador -->
             <View
                 android:layout_width="match_parent"
@@ -45,9 +34,9 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"/>
 
-            <!-- Email -->
+            <!-- DNI -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_input_layout"
+                android:id="@+id/dni_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="24dp"
@@ -56,17 +45,17 @@
                 android:theme="@style/TextLabel">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/email_edittext"
+                    android:id="@+id/dni_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:maxLines="1"
-                    android:maxLength="64"
+                    android:maxLength="9"
                     android:textColor="@color/colorText"
                     android:textColorHint="@color/colorDarkerText"
-                    android:hint="@string/email_hint"
-                    android:nextFocusUp="@id/email_edittext"
-                    android:nextFocusLeft="@id/email_edittext"/>
+                    android:hint="@string/dni_hint"
+                    android:nextFocusUp="@id/password_edittext"
+                    android:nextFocusLeft="@id/password_edittext"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +101,7 @@
                 android:layout_marginRight="24dp"
                 android:layout_marginLeft="24dp"
                 android:textColor="@android:color/white"
-                android:textSize="15dp"
+                android:textSize="14sp"
                 app:cpb_cornerRadius="1dp"
                 app:cpb_textIdle="@string/login_sign_in"
                 app:cpb_iconComplete="@drawable/ic_done_mini"
@@ -130,7 +119,7 @@
                 android:text="@string/forget_password"
                 android:textColor="@color/colorText"
                 android:layout_margin="24dp"
-                android:gravity="right"/>
+                android:gravity="end"/>
 
         </LinearLayout>
 
@@ -156,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="@android:color/white"
             android:text="@string/login_ok"/>
 

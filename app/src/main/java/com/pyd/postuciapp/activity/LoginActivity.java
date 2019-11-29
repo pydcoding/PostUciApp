@@ -6,18 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.view.CircularProgressButton;
 
-public class LoginActivity extends AppCompatActivity {
+import org.jetbrains.annotations.NotNull;
 
-    private enum Type {
-        PATIENT,
-        MEDIC
-    }
+public class LoginActivity extends AppCompatActivity {
 
     private AlertDialog mAlertDialog;
     private View mAlertDialogView;
@@ -38,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         patientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAlertDialog = buildSignInDialog(Type.PATIENT);
+                mAlertDialog = buildSignInDialog();
 
                 mAlertDialog.show();
             }
@@ -47,21 +44,20 @@ public class LoginActivity extends AppCompatActivity {
         medicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Cucu, soy un médico", Toast.LENGTH_SHORT).show();
+                mAlertDialog = buildSignUpDialog();
+
+                mAlertDialog.show();
             }
         });
     }
 
-    private AlertDialog buildSignInDialog(Type type) {
+    @NotNull
+    private AlertDialog buildSignInDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 
         LayoutInflater inflater = this.getLayoutInflater();
 
-        if (type == Type.PATIENT) {
-            mAlertDialogView = inflater.inflate(R.layout.dialog_sign_in_patient, null);
-        } else {
-            mAlertDialogView = inflater.inflate(R.layout.dialog_sign_in_medic, null);
-        }
+        mAlertDialogView = inflater.inflate(R.layout.dialog_sign_in_patient, null);
 
         builder.setView(mAlertDialogView);
 
@@ -73,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         return builder.create();
     }
 
-    private void initSignInButtons(View parent) {
+    private void initSignInButtons(@NotNull View parent) {
         final Button createAccountButton         = parent.findViewById(R.id.create_account);
         final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
 
@@ -86,12 +82,43 @@ public class LoginActivity extends AppCompatActivity {
                 if (enterButton.getProgress() == 0) {
                     mAlertDialog.dismiss();
 
-                    // TODO
-                    // mAlertDialog = createDialogSignUp();
-                    // mAlertDialog.show();
+                    mAlertDialog = buildSignUpDialog();
+                    mAlertDialog.show();
                 }
             }
         });
+
+        enterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enterButton.setProgress(50);
+
+                // TODO simular acceso a BD
+            }
+        });
+    }
+
+    private AlertDialog buildSignUpDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        mAlertDialogView = inflater.inflate(R.layout.dialog_sign_up_patient, null);
+
+        builder.setView(mAlertDialogView);
+
+        initSignUpButtons(mAlertDialogView);
+        // TODO
+        //initSignInEditTexts(mAlertDialogView);
+        //initSignInViews(mAlertDialogView);
+
+        return builder.create();
+    }
+
+    private void initSignUpButtons(@NotNull View parent) {
+        final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
+
+        enterButton.setIndeterminateProgressMode(true);
 
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
