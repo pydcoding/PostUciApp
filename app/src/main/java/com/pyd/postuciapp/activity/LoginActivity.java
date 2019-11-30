@@ -1,7 +1,10 @@
 package com.pyd.postuciapp.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,13 +24,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private AppCompatCheckBox mRememberMeCheckBox;
+
     private TextInputLayout mDniInputLayout;
     private TextInputLayout mNameInputLayout;
     private TextInputLayout mPasswordInputLayout;
 
-    private EditText mDniEditText;
-    private EditText mNameEditText;
-    private EditText mPasswordEditText;
+    private AppCompatEditText mDniEditText;
+    private AppCompatEditText mNameEditText;
+    private AppCompatEditText mPasswordEditText;
 
     private AlertDialog mAlertDialog;
     private View mAlertDialogView;
@@ -75,8 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
         initSignInButtons(mAlertDialogView);
         initSignInEditTexts(mAlertDialogView);
-        // TODO
-        //initSignInViews(mAlertDialogView);
+        initSignInViews(mAlertDialogView);
 
         return builder.create();
     }
@@ -121,6 +125,11 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordEditText.addTextChangedListener(new MyTextWatcher(mPasswordEditText));
     }
 
+    private void initSignInViews(@NonNull View parent) {
+        mRememberMeCheckBox = parent.findViewById(R.id.remember_me_checkbox);
+        mRememberMeCheckBox.setChecked(true);
+    }
+
     @NotNull
     private AlertDialog buildSignUpDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -132,8 +141,6 @@ public class LoginActivity extends AppCompatActivity {
 
         initSignUpButtons(mAlertDialogView);
         initSignUpEditTexts(mAlertDialogView);
-        // TODO
-        //initSignInViews(mAlertDialogView);
 
         return builder.create();
     }
