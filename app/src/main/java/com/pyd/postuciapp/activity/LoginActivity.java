@@ -13,10 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.pyd.postuciapp.R;
+import com.pyd.postuciapp.utils.StorageManager;
 import com.pyd.postuciapp.utils.Utils;
 import com.pyd.postuciapp.view.CircularProgressButton;
 
@@ -128,6 +130,13 @@ public class LoginActivity extends AppCompatActivity {
     private void initSignInViews(@NonNull View parent) {
         mRememberMeCheckBox = parent.findViewById(R.id.remember_me_checkbox);
         mRememberMeCheckBox.setChecked(true);
+        mRememberMeCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                StorageManager storageManager = new StorageManager(getApplicationContext());
+                storageManager.setLoggedIn(b);
+            }
+        });
     }
 
     @NotNull
