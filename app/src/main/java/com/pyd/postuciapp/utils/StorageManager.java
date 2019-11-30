@@ -3,18 +3,16 @@ package com.pyd.postuciapp.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.google.gson.Gson;
-
 import org.jetbrains.annotations.NotNull;
 
-public class SharedPreferencesManager {
+public class StorageManager {
 
     private static final String KEY_LOGGED_IN = "logged_in";
 
     private static SharedPreferences mSharedPreferences;
     private static SharedPreferences.Editor mEditor;
 
-    public SharedPreferencesManager(@NotNull Context context) {
+    public StorageManager(@NotNull Context context) {
         mSharedPreferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
     }
 
