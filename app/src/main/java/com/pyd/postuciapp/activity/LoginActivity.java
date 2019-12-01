@@ -26,6 +26,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String KEY_LOGGED_IN = "logged_in";
+
     private AppCompatCheckBox mRememberMeCheckBox;
 
     private TextInputLayout mDniInputLayout;
@@ -134,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 StorageManager storageManager = new StorageManager(getApplicationContext());
-                storageManager.setLoggedIn(b);
+                storageManager.storeBoolean(KEY_LOGGED_IN, b);
             }
         });
     }

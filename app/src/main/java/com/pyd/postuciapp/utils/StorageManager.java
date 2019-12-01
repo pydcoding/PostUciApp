@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class StorageManager {
 
-    private static final String KEY_LOGGED_IN = "logged_in";
 
     private static SharedPreferences mSharedPreferences;
     private static SharedPreferences.Editor mEditor;
@@ -26,24 +25,25 @@ public class StorageManager {
     }
 
     /**
-     * Metodo que inserta si el usuario esta logueado.
+     * Metodo que inserta un booleano.
      *
-     * @param loggedIn: true si el usuario esta logeado
+     * @param key: clave con la que guardar el valor.
+     * @param value: true si el usuario esta logeado.
      * @return true si se ha insertado correctamente.
      */
-    public synchronized boolean setLoggedIn(boolean loggedIn) {
+    public synchronized boolean storeBoolean(String key, boolean value) {
         mEditor = mSharedPreferences.edit();
-        mEditor.putBoolean(KEY_LOGGED_IN, loggedIn);
+        mEditor.putBoolean(key, value);
 
         return mEditor.commit();
     }
 
     /**
-     * Metodo que devuelve si el usuario esta logueado.
+     * Metodo que devuelve un booleano con la clave recibida.
      *
-     * @return true si el usuario esta logeado.
+     * @return boolean
      */
-    public boolean isLoggedIn() {
-        return mSharedPreferences.getBoolean(KEY_LOGGED_IN, false);
+    public boolean getBoolean(String key) {
+        return mSharedPreferences.getBoolean(key, false);
     }
 }
