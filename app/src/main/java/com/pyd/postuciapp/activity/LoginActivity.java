@@ -6,18 +6,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import android.animation.Animator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pyd.postuciapp.R;
+import com.pyd.postuciapp.constants.Constants;
+import com.pyd.postuciapp.network.VolleyManager;
 import com.pyd.postuciapp.utils.StorageManager;
 import com.pyd.postuciapp.utils.Utils;
 import com.pyd.postuciapp.view.CircularProgressButton;
@@ -27,6 +37,11 @@ import org.jetbrains.annotations.NotNull;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String KEY_LOGGED_IN = "logged_in";
+
+    private enum Type {
+        PATIENT,
+        MEDIC
+    }
 
     private AppCompatCheckBox mRememberMeCheckBox;
 
@@ -57,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         patientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAlertDialog = buildSignInDialog();
+                mAlertDialog = buildSignInDialog(Type.PATIENT);
 
                 mAlertDialog.show();
             }
@@ -66,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         medicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAlertDialog = buildSignUpDialog();
+                mAlertDialog = buildSignInDialog(Type.MEDIC);
 
                 mAlertDialog.show();
             }
@@ -74,46 +89,83 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @NotNull
-    private AlertDialog buildSignInDialog() {
+    private AlertDialog buildSignInDialog(Type type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
         LayoutInflater inflater     = this.getLayoutInflater();
 
-        mAlertDialogView = inflater.inflate(R.layout.dialog_sign_in_patient, null);
+        mAlertDialogView = inflater.inflate((type == Type.PATIENT) ? R.layout.dialog_sign_in_patient : R.layout.dialog_sign_in_medic, null);
 
         builder.setView(mAlertDialogView);
 
-        initSignInButtons(mAlertDialogView);
+        initSignInButtons(mAlertDialogView, type);
         initSignInEditTexts(mAlertDialogView);
         initSignInViews(mAlertDialogView);
 
         return builder.create();
     }
 
-    private void initSignInButtons(@NotNull View parent) {
-        final Button createAccountButton         = parent.findViewById(R.id.create_account);
+    private void initSignInButtons(@NotNull View parent, final Type type) {
         final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
 
-        enterButton.setIndeterminateProgressMode(true);
+        if (type == Type.PATIENT) {
+            final Button createAccountButton = parent.findViewById(R.id.create_account);
 
-        createAccountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Se permite cambiar de pantalla siempre que no se este cargando.
-                if (enterButton.getProgress() == 0) {
-                    mAlertDialog.dismiss();
+            createAccountButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Se permite cambiar de pantalla siempre que no se este cargando.
+                    if (enterButton.getProgress() == 0) {
+                        mAlertDialog.dismiss();
 
-                    mAlertDialog = buildSignUpDialog();
-                    mAlertDialog.show();
+                        mAlertDialog = buildSignUpDialog();
+                        mAlertDialog.show();
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        enterButton.setIndeterminateProgressMode(true);
 
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enterButton.setProgress(50);
+                if (validateDni(mDniEditText, mDniInputLayout) && validatePassword(mPasswordEditText, mPasswordInputLayout) && (enterButton.getProgress() == 0)) {
+                    enterButton.setProgress(50);
 
-                // TODO simular acceso a BD
+                    if (!Constants.DEBUG) {
+                        String dni = mDniEditText.getText().toString();
+                        String password = mPasswordEditText.getText().toString();
+
+                        // TODO cifrar contraseña
+                        String url = Constants.SERVER_URL +
+                                ((type == Type.PATIENT) ? Constants.SERVER_SIGN_IN_PATIENT : Constants.SERVER_SIGN_IN_MEDIC) +
+                                Constants.SERVER_LOGIN_PARAM_DNI + dni + "&" +
+                                Constants.SERVER_LOGIN_PARAM_PASSWORD + password;
+
+                        StringRequest request = new StringRequest(
+                                Request.Method.GET,
+                                url,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        if (response.equals(Constants.SERVER_RESPONSE_OK)) {
+
+                                        }
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        // TODO mostrar snackbar
+                                    }
+                                });
+
+                        VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
+
+                    } else {
+                        animateSucces(enterButton);
+                    }
+                }
             }
         });
     }
@@ -164,9 +216,43 @@ public class LoginActivity extends AppCompatActivity {
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enterButton.setProgress(50);
+                if (validateDni(mDniEditText, mDniInputLayout) && validatePassword(mPasswordEditText, mPasswordInputLayout) && validateName(mNameEditText, mNameInputLayout) && (enterButton.getProgress() == 0)) {
+                    enterButton.setProgress(50);
 
-                // TODO simular acceso a BD
+                    if (!Constants.DEBUG) {
+                        String dni = mDniEditText.getText().toString();
+                        String password = mPasswordEditText.getText().toString();
+
+                        // TODO cifrar contraseña
+                        String url = Constants.SERVER_URL +
+                                Constants.SERVER_SIGN_IN_PATIENT +
+                                Constants.SERVER_LOGIN_PARAM_DNI + dni + "&" +
+                                Constants.SERVER_LOGIN_PARAM_PASSWORD + password;
+
+                        StringRequest request = new StringRequest(
+                                Request.Method.GET,
+                                url,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        if (response.equals(Constants.SERVER_RESPONSE_OK)) {
+                                            animateSucces(enterButton);
+                                        }
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        // TODO mostrar snackbar
+                                    }
+                                });
+
+                        VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
+
+                    } else {
+                        animateSucces(enterButton);
+                    }
+                }
             }
         });
     }
@@ -294,5 +380,50 @@ public class LoginActivity extends AppCompatActivity {
         if (view.requestFocus()) {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
+    }
+
+    private void animateSucces(@NotNull View origin) {
+        int enterButtonX = (origin.getLeft()
+                + origin.getRight()) / 2;
+
+        int enterButtonY = (origin.getTop()
+                + origin.getBottom()) / 2;
+
+        View background = mAlertDialogView.findViewById(R.id.sign_in_dialog_background);
+
+        int radiusReveal = Math.max(background.getWidth()
+                , background.getHeight());
+
+        background.setVisibility(View.VISIBLE);
+
+        Animator animator =
+                android.view.ViewAnimationUtils.createCircularReveal(background
+                        , enterButtonX
+                        , enterButtonY
+                        , 0
+                        , radiusReveal);
+
+        animator.setDuration(500);
+        animator.setInterpolator(
+                AnimationUtils.loadInterpolator(LoginActivity.this, R.anim.accelerator_interpolator));
+
+        animator.start();
+
+        background.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // Avanzamos automaticamente a la siguiente pantalla.
+                /*Intent intent = new Intent(LoginActivity.this, MainScreenUI.class);
+
+                startActivity(intent);
+
+                finish();
+
+                // Animacion de transicion para pasar de una activity a otra.
+                overridePendingTransition(R.anim.right_in_animation, R.anim.right_out_animation);*/
+            }
+        });
     }
 }

@@ -1,4 +1,4 @@
-package com.pyd.postuciapp.utils;
+package com.pyd.postuciapp.network;
 
 import android.content.Context;
 
