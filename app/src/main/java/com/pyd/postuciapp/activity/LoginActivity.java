@@ -7,11 +7,11 @@ import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import android.animation.Animator;
-import android.content.Intent;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -34,6 +34,8 @@ import com.pyd.postuciapp.view.CircularProgressButton;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.ref.WeakReference;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final String KEY_LOGGED_IN = "logged_in";
@@ -42,8 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         PATIENT,
         MEDIC
     }
-
-    private AppCompatCheckBox mRememberMeCheckBox;
 
     private TextInputLayout mDniInputLayout;
     private TextInputLayout mNameInputLayout;
@@ -65,6 +65,9 @@ public class LoginActivity extends AppCompatActivity {
         initButtons();
     }
 
+    /**
+     * Inicializa los botones para el paciente y el médico.
+     */
     private void initButtons() {
         Button patientButton = findViewById(R.id.patient_button);
         Button medicButton   = findViewById(R.id.medic_button);
@@ -88,6 +91,13 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Construye un diálogo para iniciar sesión tanto para el paciente como para el médico en
+     * función del tipo recibido.
+     *
+     * @param type: tipo de usuario (PATIENT o MEDIC)
+     * @return objeto de tipo AlertDialog.
+     */
     @NotNull
     private AlertDialog buildSignInDialog(Type type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -104,6 +114,10 @@ public class LoginActivity extends AppCompatActivity {
         return builder.create();
     }
 
+    /**
+     * Inicializa los botones del dialogo de "iniciar sesión". Este método es común tanto
+     * para el paciente como para el médico, ya que son muy parecidos.
+     */
     private void initSignInButtons(@NotNull View parent, final Type type) {
         final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
 
@@ -149,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals(Constants.SERVER_RESPONSE_OK)) {
-
+                                            animateSucces(enterButton);
                                         }
                                     }
                                 },
@@ -163,13 +177,16 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        animateSucces(enterButton);
+                        new FakeConnection(LoginActivity.this, enterButton).execute();
                     }
                 }
             }
         });
     }
 
+    /**
+     * Inicializa los EditText del diálogo de "Iniciar sesión"
+     */
     private void initSignInEditTexts(@NotNull View parent) {
         mDniInputLayout      = parent.findViewById(R.id.dni_input_layout);
         mPasswordInputLayout = parent.findViewById(R.id.password_input_layout);
@@ -181,10 +198,13 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordEditText.addTextChangedListener(new MyTextWatcher(mPasswordEditText));
     }
 
+    /**
+     * Inicializa los componentes restantes de los diálogos.
+     */
     private void initSignInViews(@NonNull View parent) {
-        mRememberMeCheckBox = parent.findViewById(R.id.remember_me_checkbox);
-        mRememberMeCheckBox.setChecked(true);
-        mRememberMeCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        AppCompatCheckBox rememberMeCheckBox = parent.findViewById(R.id.remember_me_checkbox);
+        rememberMeCheckBox.setChecked(true);
+        rememberMeCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 StorageManager storageManager = new StorageManager(getApplicationContext());
@@ -193,6 +213,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Construye un diálogo para que el paciente se registre.
+     *
+     * @return objeto de tipo AlertDialog.
+     */
     @NotNull
     private AlertDialog buildSignUpDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -208,6 +233,9 @@ public class LoginActivity extends AppCompatActivity {
         return builder.create();
     }
 
+    /**
+     * Inicializa los botones del diálogo para registrarse.
+     */
     private void initSignUpButtons(@NotNull View parent) {
         final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
 
@@ -250,13 +278,16 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        animateSucces(enterButton);
+                        new FakeConnection(LoginActivity.this, enterButton).execute();
                     }
                 }
             }
         });
     }
 
+    /**
+     * Inicializa los EditText del diálogo de registrarse.
+     */
     private void initSignUpEditTexts(@NotNull View parent) {
         mDniInputLayout      = parent.findViewById(R.id.dni_input_layout);
         mPasswordInputLayout = parent.findViewById(R.id.password_input_layout);
@@ -382,6 +413,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Inicia la animación cuando la conexión con el servidor es correcta y el usuario se ha logueado
+     * correctamente
+     */
     private void animateSucces(@NotNull View origin) {
         int enterButtonX = (origin.getLeft()
                 + origin.getRight()) / 2;
@@ -425,5 +460,36 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_in_animation, R.anim.right_out_animation);*/
             }
         });
+    }
+
+    @SuppressWarnings("StaticFieldLeak")
+    private class FakeConnection extends AsyncTask<Void, Void, Void> {
+
+        private WeakReference<Context> mContext;
+        private View mOrigin;
+
+        FakeConnection(final Context context, final View origin) {
+            super();
+
+            mContext = new WeakReference<>(context);
+            mOrigin = origin;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                Thread.sleep(1000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            animateSucces(mOrigin);
+        }
     }
 }
