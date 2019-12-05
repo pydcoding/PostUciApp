@@ -26,6 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.textfield.TextInputLayout;
 import com.pyd.postuciapp.R;
+import com.pyd.postuciapp.bean.Medic;
+import com.pyd.postuciapp.bean.Patient;
 import com.pyd.postuciapp.constants.Constants;
 import com.pyd.postuciapp.network.VolleyManager;
 import com.pyd.postuciapp.utils.StorageManager;
@@ -39,8 +41,10 @@ import java.lang.ref.WeakReference;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String KEY_LOGGED_IN = "logged_in";
+    private static final String KEY_MEDIC = "medic";
+    private static final String KEY_PATIENT = "patient";
 
-    private enum Type {
+    private enum UserType {
         PATIENT,
         MEDIC
     }
@@ -75,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         patientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAlertDialog = buildSignInDialog(Type.PATIENT);
+                mAlertDialog = buildSignInDialog(UserType.PATIENT);
 
                 mAlertDialog.show();
             }
@@ -84,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         medicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAlertDialog = buildSignInDialog(Type.MEDIC);
+                mAlertDialog = buildSignInDialog(UserType.MEDIC);
 
                 mAlertDialog.show();
             }
@@ -95,19 +99,19 @@ public class LoginActivity extends AppCompatActivity {
      * Construye un diálogo para iniciar sesión tanto para el paciente como para el médico en
      * función del tipo recibido.
      *
-     * @param type: tipo de usuario (PATIENT o MEDIC)
+     * @param userType: tipo de usuario (PATIENT o MEDIC)
      * @return objeto de tipo AlertDialog.
      */
     @NotNull
-    private AlertDialog buildSignInDialog(Type type) {
+    private AlertDialog buildSignInDialog(UserType userType) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
         LayoutInflater inflater     = this.getLayoutInflater();
 
-        mAlertDialogView = inflater.inflate((type == Type.PATIENT) ? R.layout.dialog_sign_in_patient : R.layout.dialog_sign_in_medic, null);
+        mAlertDialogView = inflater.inflate((userType == UserType.PATIENT) ? R.layout.dialog_sign_in_patient : R.layout.dialog_sign_in_medic, null);
 
         builder.setView(mAlertDialogView);
 
-        initSignInButtons(mAlertDialogView, type);
+        initSignInButtons(mAlertDialogView, userType);
         initSignInEditTexts(mAlertDialogView);
         initSignInViews(mAlertDialogView);
 
@@ -118,10 +122,10 @@ public class LoginActivity extends AppCompatActivity {
      * Inicializa los botones del dialogo de "iniciar sesión". Este método es común tanto
      * para el paciente como para el médico, ya que son muy parecidos.
      */
-    private void initSignInButtons(@NotNull View parent, final Type type) {
+    private void initSignInButtons(@NotNull View parent, final UserType userType) {
         final CircularProgressButton enterButton = parent.findViewById(R.id.enter);
 
-        if (type == Type.PATIENT) {
+        if (userType == UserType.PATIENT) {
             final Button createAccountButton = parent.findViewById(R.id.create_account);
 
             createAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         // TODO cifrar contraseña
                         String url = Constants.SERVER_URL +
-                                ((type == Type.PATIENT) ? Constants.SERVER_SIGN_IN_PATIENT : Constants.SERVER_SIGN_IN_MEDIC) +
+                                ((userType == UserType.PATIENT) ? Constants.SERVER_SIGN_IN_PATIENT : Constants.SERVER_SIGN_IN_MEDIC) +
                                 Constants.SERVER_LOGIN_PARAM_DNI + dni + "&" +
                                 Constants.SERVER_LOGIN_PARAM_PASSWORD + password;
 
@@ -177,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        new FakeConnection(LoginActivity.this, enterButton).execute();
+                        new FakeConnection(LoginActivity.this, enterButton, userType).execute();
                     }
                 }
             }
@@ -278,7 +282,7 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        new FakeConnection(LoginActivity.this, enterButton).execute();
+                        new FakeConnection(LoginActivity.this, enterButton, UserType.PATIENT).execute();
                     }
                 }
             }
@@ -465,20 +469,49 @@ public class LoginActivity extends AppCompatActivity {
     @SuppressWarnings("StaticFieldLeak")
     private class FakeConnection extends AsyncTask<Void, Void, Void> {
 
+        private UserType mUserType;
+
         private WeakReference<Context> mContext;
         private View mOrigin;
 
-        FakeConnection(final Context context, final View origin) {
+        FakeConnection(Context context, View origin, UserType userType) {
             super();
 
             mContext = new WeakReference<>(context);
             mOrigin = origin;
+
+            mUserType = userType;
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             try {
                 Thread.sleep(1000);
+
+                StorageManager storageManager = new StorageManager(mContext.get());
+
+                if (mUserType == UserType.PATIENT) {
+                    Patient patient = new Patient(
+                            0,
+                            "11223344A",
+                            "Daniel",
+                            10,
+                            50,
+                            0,
+                            1,
+                            1,
+                            20,
+                            0,
+                            1
+                    );
+
+                    storageManager.storePatient(KEY_PATIENT, patient);
+
+                } else {
+                    Medic medic = new Medic("12345678B", "Sandra");
+
+                    storageManager.storeMedic(KEY_MEDIC, medic);
+                }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
