@@ -1,40 +1,41 @@
 package com.pyd.postuciapp.bean;
 
 public class Patient {
+
     // Numero de paciente
     private int id;
 
     private String dni;
     private String name;
 
-    // Si se ha ingresado más de 7 días
-    private int stayTime;
+    // Si se ha ingresado más de 7 días, fecha de ingreso menos fecha de alta
+    private boolean stayTime;
     // Si ha tenido ventilación mayor a 48 horas
-    private int mecanicVentilation;
-    //Si el delirio es mayor a 48 horas
-    private int delirium;
+    private boolean mecanicVentilation;
+    // Si el delirio es mayor a 48 horas
+    private boolean delirium;
     // Tiene o no enfermedad neuromuscular
-    private int neuromuscularDisease;
+    private boolean neuromuscularDisease;
     // Dispositivos invasivos o decanulación
-    private int invasiveDevice;
+    private boolean invasiveDevice;
     // Úlcera por presión
-    private int pressureUlcer;
+    private boolean pressureUlcer;
     // Nutrición artificial
-    private int artificialNutrition;
-    private int doctorPetition;
+    private boolean artificialNutrition;
+    private boolean doctorPetition;
 
     public Patient(
             int id,
             String dni,
             String name,
-            int stayTime,
-            int mecanicVentilation,
-            int delirium,
-            int neuromuscularDisease,
-            int invasiveDevice,
-            int pressureUlcer,
-            int artificialNutrition,
-            int doctorPetition) {
+            boolean stayTime,
+            boolean mecanicVentilation,
+            boolean delirium,
+            boolean neuromuscularDisease,
+            boolean invasiveDevice,
+            boolean pressureUlcer,
+            boolean artificialNutrition,
+            boolean doctorPetition) {
 
         this.id = id;
         this.dni = dni;
@@ -73,67 +74,67 @@ public class Patient {
         this.name = name;
     }
 
-    public int getStayTime() {
+    public boolean getStayTime() {
         return stayTime;
     }
 
-    public void setStayTime(int stayTime) {
+    public void setStayTime(boolean stayTime) {
         this.stayTime = stayTime;
     }
 
-    public int getMecanicVentilation() {
+    public boolean getMecanicVentilation() {
         return mecanicVentilation;
     }
 
-    public void setMecanicVentilation(int mecanicVentilation) {
+    public void setMecanicVentilation(boolean mecanicVentilation) {
         this.mecanicVentilation = mecanicVentilation;
     }
 
-    public int getDelirium() {
+    public boolean getDelirium() {
         return delirium;
     }
 
-    public void setDelirium(int delirium) {
+    public void setDelirium(boolean delirium) {
         this.delirium = delirium;
     }
 
-    public int getNeuromuscularDisease() {
+    public boolean getNeuromuscularDisease() {
         return neuromuscularDisease;
     }
 
-    public void setNeuromuscularDisease(int neuromuscularDisease) {
+    public void setNeuromuscularDisease(boolean neuromuscularDisease) {
         this.neuromuscularDisease = neuromuscularDisease;
     }
 
-    public int getInvasiveDevice() {
+    public boolean getInvasiveDevice() {
         return invasiveDevice;
     }
 
-    public void setInvasiveDevice(int invasiveDevice) {
+    public void setInvasiveDevice(boolean invasiveDevice) {
         this.invasiveDevice = invasiveDevice;
     }
 
-    public int getPressureUlcer() {
+    public boolean getPressureUlcer() {
         return pressureUlcer;
     }
 
-    public void setPressureUlcer(int pressureUlcer) {
+    public void setPressureUlcer(boolean pressureUlcer) {
         this.pressureUlcer = pressureUlcer;
     }
 
-    public int getArtificialNutrition() {
+    public boolean getArtificialNutrition() {
         return artificialNutrition;
     }
 
-    public void setArtificialNutrition(int artificialNutrition) {
+    public void setArtificialNutrition(boolean artificialNutrition) {
         this.artificialNutrition = artificialNutrition;
     }
 
-    public int getDoctorPetition() {
+    public boolean getDoctorPetition() {
         return doctorPetition;
     }
 
-    public void setDoctorPetition(int doctorPetition) {
+    public void setDoctorPetition(boolean doctorPetition) {
         this.doctorPetition = doctorPetition;
     }
 }
