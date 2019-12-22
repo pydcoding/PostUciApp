@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 
 import android.animation.Animator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -167,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals(Constants.SERVER_RESPONSE_OK)) {
-                                            animateSucces(enterButton);
+                                            animateSuccess(enterButton, userType);
                                         }
                                     }
                                 },
@@ -268,7 +269,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals(Constants.SERVER_RESPONSE_OK)) {
-                                            animateSucces(enterButton);
+                                            animateSuccess(enterButton, UserType.PATIENT);
                                         }
                                     }
                                 },
@@ -421,7 +422,7 @@ public class LoginActivity extends AppCompatActivity {
      * Inicia la animación cuando la conexión con el servidor es correcta y el usuario se ha logueado
      * correctamente
      */
-    private void animateSucces(@NotNull View origin) {
+    private void animateSuccess(@NotNull View origin, final UserType userType) {
         int enterButtonX = (origin.getLeft()
                 + origin.getRight()) / 2;
 
@@ -448,20 +449,15 @@ public class LoginActivity extends AppCompatActivity {
 
         animator.start();
 
-        background.setOnClickListener(new View.OnClickListener()
-        {
+        background.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 // Avanzamos automaticamente a la siguiente pantalla.
-                /*Intent intent = new Intent(LoginActivity.this, MainScreenUI.class);
+                Intent intent = new Intent(LoginActivity.this, (userType == UserType.PATIENT) ? PatientActivity.class : MedicActivity.class);
 
                 startActivity(intent);
 
                 finish();
-
-                // Animacion de transicion para pasar de una activity a otra.
-                overridePendingTransition(R.anim.right_in_animation, R.anim.right_out_animation);*/
             }
         });
     }
@@ -495,14 +491,14 @@ public class LoginActivity extends AppCompatActivity {
                             0,
                             "11223344A",
                             "Daniel",
-                            10,
-                            50,
-                            0,
-                            1,
-                            1,
-                            20,
-                            0,
-                            1
+                            true,
+                            true,
+                            true,
+                            false,
+                            true,
+                            false,
+                            true,
+                            false
                     );
 
                     storageManager.storePatient(KEY_PATIENT, patient);
@@ -522,7 +518,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void unused) {
-            animateSucces(mOrigin);
+            animateSuccess(mOrigin, mUserType);
         }
     }
 }

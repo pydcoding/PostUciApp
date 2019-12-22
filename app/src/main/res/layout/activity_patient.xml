@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.PatientActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/patient_pending_tests_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/patient_pending_tests"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/patient_done_tests_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/patient_done_tests"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/patient_contact_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/patient_contact"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"/>
+
+</LinearLayout>

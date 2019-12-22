@@ -28,4 +28,8 @@
     <string name="sign_up_header">Registro</string>
 
     <string name="progress_authenticating">Iniciando sesión</string>
+
+    <string name="patient_pending_tests">Tests pendientes</string>
+    <string name="patient_done_tests">Tests realizados</string>
+    <string name="patient_contact">Contactar</string>
 </resources>
