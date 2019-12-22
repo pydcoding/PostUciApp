@@ -11,6 +11,7 @@
 
     <string name="accept"><b>Aceptar</b></string>
     <string name="cancel"><b>Cancelar</b></string>
+    <string name="understood">Entendido</string>
 
     <string name="sign_up">Registro</string>
     <string name="dni_hint">DNI</string>
@@ -32,4 +33,12 @@
     <string name="patient_pending_tests">Tests pendientes</string>
     <string name="patient_done_tests">Tests realizados</string>
     <string name="patient_contact">Contactar</string>
+
+    <string name="test_template_question">1. He pensado acerca de ello sin quererlo:</string>
+    <string name="option_never">Nunca</string>
+    <string name="option_rarely">Rara vez</string>
+    <string name="option_sometimes">A veces</string>
+    <string name="option_often">A menudo</string>
+
+    <string name="test_heading">A continuación se le mostrará una lista de comentarios que hace la gente que ha pasado por una situación de vida estresante. Por favor, lea cada uno de ellos e indique con que frecuencia estos comentarios fueron verdad para usted cuando ya estaba de alta en el hospital.</string>
 </resources>
