@@ -258,7 +258,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         // TODO cifrar contraseña
                         String url = Constants.SERVER_URL +
-                                Constants.SERVER_SIGN_IN_PATIENT +
+                                Constants.SERVER_SIGN_UP_PATIENT +
                                 Constants.SERVER_LOGIN_PARAM_DNI + dni + "&" +
                                 Constants.SERVER_LOGIN_PARAM_PASSWORD + password;
 

@@ -12,6 +12,7 @@
     <string name="accept"><b>Aceptar</b></string>
     <string name="cancel"><b>Cancelar</b></string>
     <string name="understood">Entendido</string>
+    <string name="submit">Enviar</string>
 
     <string name="sign_up">Registro</string>
     <string name="dni_hint">DNI</string>
@@ -35,10 +36,28 @@
     <string name="patient_contact">Contactar</string>
 
     <string name="test_template_question">1. He pensado acerca de ello sin quererlo:</string>
-    <string name="option_never">Nunca</string>
-    <string name="option_rarely">Rara vez</string>
-    <string name="option_sometimes">A veces</string>
-    <string name="option_often">A menudo</string>
+    <string-array name="four_option_button">
+        <item>Nunca</item>
+        <item>Rara vez</item>
+        <item>A veces</item>
+        <item>A menudo</item>
+    </string-array>
 
-    <string name="test_heading">A continuación se le mostrará una lista de comentarios que hace la gente que ha pasado por una situación de vida estresante. Por favor, lea cada uno de ellos e indique con que frecuencia estos comentarios fueron verdad para usted cuando ya estaba de alta en el hospital.</string>
+    <string name="test_heading">A continuación se le mostrará una lista de comentarios que hace la gente que ha pasado por una situación de vida estresante. Por favor, lea cada uno de ellos e indique con qué frecuencia estos comentarios fueron verdad para usted cuando ya estaba de alta en el hospital.</string>
+
+    <string name="test_eie_question_1">1. He pensado acerca de ello sin quererlo</string>
+    <string name="test_eie_question_2">2. Logré evitar perturbarme cuando pensaba acerca de ello o cuando me lo recordaban</string>
+    <string name="test_eie_question_3">3. Traté de borrarlo de mi memoria</string>
+    <string name="test_eie_question_4">4. Me costó dormirme o permanecer dormido porque imágenes o pensamientos acerca de ello me aparecían en la mente</string>
+    <string name="test_eie_question_5">5. Tengo oleadas de pensamientos muy fuertes acerca de ello</string>
+    <string name="test_eie_question_6">6. Soñé acerca de ello</string>
+    <string name="test_eie_question_7">7. Me mantuve alejado de todo aquello que me lo recordaba</string>
+    <string name="test_eie_question_8">8. Me siento como si no hubiera ocurrido o como si no fuera real</string>
+    <string name="test_eie_question_9">9. Traté de no hablar acerca del tema</string>
+    <string name="test_eie_question_10">10. Me aparecían imágenes acerca de ello mientras pensaba en otra cosa</string>
+    <string name="test_eie_question_11">11. Otras cosas me hacían pensar en ello una y otra vez</string>
+    <string name="test_eie_question_12">12. Percibía que aún tenía un montón de pensamientos acerca de ello, pero no me ocupé de ello</string>
+    <string name="test_eie_question_13">13. Traté de no pensar acerca de ello</string>
+    <string name="test_eie_question_14">14. Cualquier recordatorio me traía nuevamente sentimientos referentes al hecho</string>
+    <string name="test_eie_question_15">15. Mis sentimientos acerca de ello estaban como anestesiados</string>
 </resources>

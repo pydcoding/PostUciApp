@@ -15,4 +15,8 @@ public class Constants {
     public static final String SERVER_LOGIN_PARAM_PASSWORD = "password=";
 
     public static final String SERVER_RESPONSE_OK = "Ok";
+
+    public enum TestType {
+        EIE
+    }
 }

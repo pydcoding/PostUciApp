@@ -1,61 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:background="@android:color/white">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/test_template_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/test_template_question"
-        android:layout_marginBottom="16dp"/>
+        android:layout_margin="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="8dp"
         android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/test_template_never_button"
-            android:layout_width="0dp"
+        <org.honorato.multistatetogglebutton.MultiStateToggleButton
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:text="@string/option_never"
-            android:background="@color/colorAccent"
-            android:layout_marginEnd="8dp"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/test_template_rarely_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:text="@string/option_rarely"
-            android:background="@color/colorAccent"
-            android:layout_marginEnd="8dp"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/test_template_sometimes_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:text="@string/option_sometimes"
-            android:background="@color/colorAccent"
-            android:layout_marginEnd="8dp"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/test_template_often_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@android:color/white"
-            android:text="@string/option_often"
-            android:background="@color/colorAccent"/>
+            app:values="@array/four_option_button"
+            app:mstbPrimaryColor="@color/colorAccent"
+            app:mstbColorNotPressedText="@color/colorAccent"
+            app:mstbColorPressedText="@android:color/white"
+            app:mstbSecondaryColor="@android:color/white"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/cpb_grey"/>
 
 </LinearLayout>

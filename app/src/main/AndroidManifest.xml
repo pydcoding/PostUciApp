@@ -24,6 +24,14 @@
         <activity android:name=".activity.MedicActivity">
 
         </activity>
+
+        <activity android:name=".activity.TestIntroductionActivity">
+
+        </activity>
+
+        <activity android:name=".activity.TestEIEActivity">
+
+        </activity>
     </application>
 
 </manifest>
