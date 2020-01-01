@@ -41,10 +41,6 @@ import java.lang.ref.WeakReference;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String KEY_LOGGED_IN = "logged_in";
-    private static final String KEY_MEDIC = "medic";
-    private static final String KEY_PATIENT = "patient";
-
     private enum UserType {
         PATIENT,
         MEDIC
@@ -213,7 +209,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 StorageManager storageManager = new StorageManager(getApplicationContext());
-                storageManager.storeBoolean(KEY_LOGGED_IN, b);
+                storageManager.storeBoolean(Constants.KEY_LOGGED_IN, b);
             }
         });
     }
@@ -501,12 +497,12 @@ public class LoginActivity extends AppCompatActivity {
                             false
                     );
 
-                    storageManager.storePatient(KEY_PATIENT, patient);
+                    storageManager.storePatient(Constants.KEY_PATIENT, patient);
 
                 } else {
                     Medic medic = new Medic("12345678B", "Sandra");
 
-                    storageManager.storeMedic(KEY_MEDIC, medic);
+                    storageManager.storeMedic(Constants.KEY_MEDIC, medic);
                 }
 
             } catch (InterruptedException e) {

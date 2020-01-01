@@ -19,7 +19,7 @@ public class TestIntroductionActivity extends AppCompatActivity {
         findViewById(R.id.test_heading_understood_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TestIntroductionActivity.this, TestEIEActivity.class);
+                Intent intent = new Intent(TestIntroductionActivity.this, TestEscalaImpactoEventoActivity.class);
                 startActivity(intent);
             }
         });

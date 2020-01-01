@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.pyd.postuciapp.R;
 
 public class PatientActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

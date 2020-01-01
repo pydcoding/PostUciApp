@@ -13,25 +13,18 @@
         android:text="@string/test_template_question"
         android:layout_margin="16dp"/>
 
-    <LinearLayout
+    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/test_template_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="8dp"
-        android:orientation="horizontal">
-
-        <org.honorato.multistatetogglebutton.MultiStateToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:values="@array/four_option_button"
-            app:mstbPrimaryColor="@color/colorAccent"
-            app:mstbColorNotPressedText="@color/colorAccent"
-            app:mstbColorPressedText="@android:color/white"
-            app:mstbSecondaryColor="@android:color/white"/>
-
-    </LinearLayout>
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:values="@array/four_option_button"
+        app:mstbPrimaryColor="@color/colorAccent"
+        app:mstbColorNotPressedText="@color/colorAccent"
+        app:mstbColorPressedText="@android:color/white"
+        app:mstbSecondaryColor="@android:color/white"/>
 
     <View
         android:layout_width="match_parent"
