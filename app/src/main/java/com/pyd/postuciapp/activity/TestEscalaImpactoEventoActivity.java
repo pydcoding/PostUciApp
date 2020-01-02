@@ -1,6 +1,9 @@
 package com.pyd.postuciapp.activity;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -43,6 +46,7 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
 
         mSubmitButton = findViewById(R.id.test_submit_button);
         mSubmitButton.setEnabled(false);
+        mSubmitButton.getBackground().setColorFilter(Color.LTGRAY, PorterDuff.Mode.LIGHTEN);
 
         ((AppCompatTextView) findViewById(R.id.test_first_question).findViewById(R.id.test_template_question)).setText(getResources().getString(R.string.test_eie_question_1));
         ((AppCompatTextView) findViewById(R.id.test_second_question).findViewById(R.id.test_template_question)).setText(getResources().getString(R.string.test_eie_question_2));
@@ -122,6 +126,7 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
 
                     if (enabled) {
                         mSubmitButton.setEnabled(true);
+                        mSubmitButton.getBackground().setColorFilter(null);
                     }
                 }
             });
