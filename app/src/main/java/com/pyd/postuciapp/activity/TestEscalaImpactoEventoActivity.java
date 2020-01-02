@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.google.gson.Gson;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.bean.Patient;
 import com.pyd.postuciapp.bean.TestEscalaImpactoEvento;
@@ -161,7 +162,10 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
                 Patient patient =
                         new StorageManager(TestEscalaImpactoEventoActivity.this).getPatient(Constants.KEY_PATIENT);
 
-                TestEscalaImpactoEvento test = new TestEscalaImpactoEvento(patient, answersMap);
+                TestEscalaImpactoEvento test = new TestEscalaImpactoEvento(patient.getDni(), answersMap);
+
+                Gson gson = new Gson();
+                String string = gson.toJson(test);
             }
         });
     }

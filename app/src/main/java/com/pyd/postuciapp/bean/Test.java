@@ -4,19 +4,18 @@ import java.util.Date;
 
 public class Test {
 
-    private Patient mPatient;
-    private Date mTimeOfCompletion;
+    private String dni;
+    private Date timeOfCompletion;
 
-    Test(Patient mPatient) {
-        this.mPatient = mPatient;
-        this.mTimeOfCompletion = new Date(System.currentTimeMillis());
+    Test(String dni) {
+        this.dni = dni;
+        this.timeOfCompletion = new Date(System.currentTimeMillis());
     }
 
-    public Patient getPatient() {
-        return mPatient;
+    public String getDni() {
+        return dni;
     }
-
     public Date getTimeOfCompletion() {
-        return mTimeOfCompletion;
+        return timeOfCompletion;
     }
 }

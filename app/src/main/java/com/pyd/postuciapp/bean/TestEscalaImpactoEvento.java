@@ -17,15 +17,15 @@ public class TestEscalaImpactoEvento extends Test {
         }
     }
 
-    private Map<Integer, Answer> mAnswers;
+    private Map<Integer, Answer> answers;
 
-    public TestEscalaImpactoEvento(Patient patient, Map<Integer, Answer> answers) {
-        super(patient);
+    public TestEscalaImpactoEvento(String dni, Map<Integer, Answer> answers) {
+        super(dni);
 
-        this.mAnswers = answers;
+        this.answers = answers;
     }
 
     public Map<Integer, Answer> getAnswers() {
-        return this.mAnswers;
+        return this.answers;
     }
 }

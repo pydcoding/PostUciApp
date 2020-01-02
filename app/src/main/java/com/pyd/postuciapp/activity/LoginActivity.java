@@ -483,6 +483,7 @@ public class LoginActivity extends AppCompatActivity {
                 StorageManager storageManager = new StorageManager(mContext.get());
 
                 if (mUserType == UserType.PATIENT) {
+                    // TODO usar los campos introducidos
                     Patient patient = new Patient(
                             0,
                             "11223344A",
