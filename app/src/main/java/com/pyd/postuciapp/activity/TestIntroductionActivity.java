@@ -21,6 +21,8 @@ public class TestIntroductionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(TestIntroductionActivity.this, TestEscalaImpactoEventoActivity.class);
                 startActivity(intent);
+
+                finish();
             }
         });
     }
