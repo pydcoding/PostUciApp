@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.Toolbar;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -71,6 +72,21 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initButtons();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(getResources().getString(R.string.app_name));
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     /**

@@ -26,6 +26,11 @@
         <item name="android:textColorLink">@color/colorMediumText</item>
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
     <declare-styleable name="CircularProgressButton">
         <attr name="cpb_selectorIdle" format="reference"/>
         <attr name="cpb_selectorComplete" format="reference"/>
