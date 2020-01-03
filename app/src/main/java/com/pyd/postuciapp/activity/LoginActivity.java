@@ -48,6 +48,11 @@ public class LoginActivity extends AppCompatActivity {
         MEDIC
     }
 
+    private enum OperationType {
+        SIGN_IN,
+        SIGN_UP
+    }
+
     private TextInputLayout mDniInputLayout;
     private TextInputLayout mNameInputLayout;
     private TextInputLayout mPasswordInputLayout;
@@ -166,7 +171,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals(Constants.SERVER_RESPONSE_OK)) {
-                                            animateSuccess(enterButton, userType);
+                                            animateSuccess(enterButton, userType, OperationType.SIGN_IN);
                                         }
                                     }
                                 },
@@ -180,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        new FakeConnection(LoginActivity.this, enterButton, userType).execute();
+                        new FakeConnection(LoginActivity.this, enterButton, userType, OperationType.SIGN_IN).execute();
                     }
                 }
             }
@@ -267,7 +272,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         if (response.equals(Constants.SERVER_RESPONSE_OK)) {
-                                            animateSuccess(enterButton, UserType.PATIENT);
+                                            animateSuccess(enterButton, UserType.PATIENT, OperationType.SIGN_UP);
                                         }
                                     }
                                 },
@@ -281,7 +286,7 @@ public class LoginActivity extends AppCompatActivity {
                         VolleyManager.getInstance(LoginActivity.this).addToRequestQueue(request);
 
                     } else {
-                        new FakeConnection(LoginActivity.this, enterButton, UserType.PATIENT).execute();
+                        new FakeConnection(LoginActivity.this, enterButton, UserType.PATIENT, OperationType.SIGN_UP).execute();
                     }
                 }
             }
@@ -420,14 +425,14 @@ public class LoginActivity extends AppCompatActivity {
      * Inicia la animación cuando la conexión con el servidor es correcta y el usuario se ha logueado
      * correctamente
      */
-    private void animateSuccess(@NotNull View origin, final UserType userType) {
+    private void animateSuccess(@NotNull View origin, final UserType userType, final OperationType operationType) {
         int enterButtonX = (origin.getLeft()
                 + origin.getRight()) / 2;
 
         int enterButtonY = (origin.getTop()
                 + origin.getBottom()) / 2;
 
-        View background = mAlertDialogView.findViewById(R.id.sign_up_dialog_background);
+        View background = mAlertDialogView.findViewById((operationType == OperationType.SIGN_UP) ? R.id.sign_up_dialog_background : R.id.sign_in_dialog_background);
 
         int radiusReveal = Math.max(background.getWidth()
                 , background.getHeight());
@@ -464,17 +469,19 @@ public class LoginActivity extends AppCompatActivity {
     private class FakeConnection extends AsyncTask<Void, Void, Void> {
 
         private UserType mUserType;
+        private OperationType mOperationType;
 
         private WeakReference<Context> mContext;
         private View mOrigin;
 
-        FakeConnection(Context context, View origin, UserType userType) {
+        FakeConnection(Context context, View origin, UserType userType, OperationType operationType) {
             super();
 
             mContext = new WeakReference<>(context);
             mOrigin = origin;
 
             mUserType = userType;
+            mOperationType = operationType;
         }
 
         @Override
@@ -518,7 +525,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void unused) {
-            animateSuccess(mOrigin, mUserType);
+            animateSuccess(mOrigin, mUserType, mOperationType);
         }
     }
 }
