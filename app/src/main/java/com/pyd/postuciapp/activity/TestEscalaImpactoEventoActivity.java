@@ -1,9 +1,11 @@
 package com.pyd.postuciapp.activity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -11,17 +13,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.bean.Patient;
+import com.pyd.postuciapp.bean.Test;
 import com.pyd.postuciapp.bean.TestEscalaImpactoEvento;
 import com.pyd.postuciapp.constants.Constants;
+import com.pyd.postuciapp.network.VolleyManager;
 import com.pyd.postuciapp.utils.StorageManager;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
 import org.honorato.multistatetogglebutton.ToggleButton;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
@@ -33,6 +45,8 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
         SOMETIMES,
         OFTEN
     }
+
+    private Patient mPatient;
 
     private AppCompatButton mSubmitButton;
 
@@ -159,14 +173,102 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
                     ++index;
                 }
 
-                Patient patient =
-                        new StorageManager(TestEscalaImpactoEventoActivity.this).getPatient(Constants.KEY_PATIENT);
+                try {
+                    mPatient = new StorageManager(TestEscalaImpactoEventoActivity.this).getPatient(Constants.KEY_PATIENT);
 
-                TestEscalaImpactoEvento test = new TestEscalaImpactoEvento(patient.getDni(), answersMap);
+                    TestEscalaImpactoEvento test = new TestEscalaImpactoEvento(Test.TestType.ESCALA_IMPACTO_EVENTO, mPatient.getDni(), answersMap);
 
-                Gson gson = new Gson();
-                String string = gson.toJson(test);
+                    Gson gson = new Gson();
+                    String string = gson.toJson(test);
+
+                    JSONObject jsonObject = new JSONObject(string);
+
+                    final ProgressDialog dialog = ProgressDialog.show(TestEscalaImpactoEventoActivity.this, "",
+                            "Enviando resultados. Por favor, espere...", true);
+
+                    if (Constants.DEBUG) {
+                        new FakeConnection(TestEscalaImpactoEventoActivity.this, dialog).execute();
+
+                    } else {
+                        String url = Constants.SERVER_URL + Constants.SERVER_SEND_TEST_RESULTS;
+
+                        JsonObjectRequest request = new JsonObjectRequest(
+                                Request.Method.POST,
+                                url,
+                                jsonObject,
+                                new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        dialog.dismiss();
+
+                                        // Se borra el test de la lista de pendientes
+                                        List<Test.TestType> pendingTests = mPatient.getPendingTests();
+                                        pendingTests.remove(Test.TestType.ESCALA_IMPACTO_EVENTO);
+                                        mPatient.setPendingTests(pendingTests);
+
+                                        StorageManager sm = new StorageManager(TestEscalaImpactoEventoActivity.this);
+                                        sm.storePatient(Constants.KEY_PATIENT, mPatient);
+
+                                        finish();
+                                    }
+                                },
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        // TODO mostrar snackbar
+                                    }
+                                });
+
+                        VolleyManager.getInstance(TestEscalaImpactoEventoActivity.this).addToRequestQueue(request);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         });
+    }
+
+    @SuppressWarnings("StaticFieldLeak")
+    private class FakeConnection extends AsyncTask<Void, Void, Void> {
+
+        private WeakReference<Context> mContext;
+        private ProgressDialog mDialog;
+
+        FakeConnection(Context context, ProgressDialog dialog) {
+            super();
+
+            mContext = new WeakReference<>(context);
+            mDialog = dialog;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                Thread.sleep(1000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void unused) {
+            mDialog.dismiss();
+
+            // Se borra el test de la lista de pendientes
+            List<Test.TestType> pendingTests = mPatient.getPendingTests();
+            pendingTests.remove(Test.TestType.ESCALA_IMPACTO_EVENTO);
+            mPatient.setPendingTests(pendingTests);
+
+            StorageManager sm = new StorageManager(mContext.get());
+            sm.storePatient(Constants.KEY_PATIENT, mPatient);
+
+            finish();
+        }
     }
 }

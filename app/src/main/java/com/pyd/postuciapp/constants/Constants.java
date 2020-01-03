@@ -20,8 +20,4 @@ public class Constants {
     public static final String KEY_LOGGED_IN = "logged_in";
     public static final String KEY_MEDIC = "medic";
     public static final String KEY_PATIENT = "patient";
-
-    public enum TestType {
-        ESCALA_IMPACTO_EVENTO
-    }
 }

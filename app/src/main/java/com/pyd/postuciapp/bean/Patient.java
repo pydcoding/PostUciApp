@@ -1,5 +1,7 @@
 package com.pyd.postuciapp.bean;
 
+import java.util.List;
+
 public class Patient {
 
     // Numero de paciente
@@ -7,6 +9,9 @@ public class Patient {
 
     private String dni;
     private String name;
+
+    // Lista de tests pendientes
+    private List<Test.TestType> pendingTests;
 
     // Si se ha ingresado más de 7 días, fecha de ingreso menos fecha de alta
     private boolean stayTime;
@@ -35,7 +40,8 @@ public class Patient {
             boolean invasiveDevice,
             boolean pressureUlcer,
             boolean artificialNutrition,
-            boolean doctorPetition) {
+            boolean doctorPetition,
+            List<Test.TestType> pendingTests) {
 
         this.id = id;
         this.dni = dni;
@@ -48,6 +54,7 @@ public class Patient {
         this.pressureUlcer = pressureUlcer;
         this.artificialNutrition = artificialNutrition;
         this.doctorPetition = doctorPetition;
+        this.pendingTests = pendingTests;
     }
 
     public int getId() {
@@ -137,4 +144,8 @@ public class Patient {
     public void setDoctorPetition(boolean doctorPetition) {
         this.doctorPetition = doctorPetition;
     }
+
+    public List<Test.TestType> getPendingTests() { return pendingTests; }
+
+    public void setPendingTests(List<Test.TestType> pendingTests) { this.pendingTests = pendingTests; }
 }

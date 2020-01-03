@@ -29,6 +29,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.bean.Medic;
 import com.pyd.postuciapp.bean.Patient;
+import com.pyd.postuciapp.bean.Test;
 import com.pyd.postuciapp.constants.Constants;
 import com.pyd.postuciapp.network.VolleyManager;
 import com.pyd.postuciapp.utils.StorageManager;
@@ -38,6 +39,7 @@ import com.pyd.postuciapp.view.CircularProgressButton;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -425,7 +427,7 @@ public class LoginActivity extends AppCompatActivity {
         int enterButtonY = (origin.getTop()
                 + origin.getBottom()) / 2;
 
-        View background = mAlertDialogView.findViewById(R.id.sign_in_dialog_background);
+        View background = mAlertDialogView.findViewById(R.id.sign_up_dialog_background);
 
         int radiusReveal = Math.max(background.getWidth()
                 , background.getHeight());
@@ -495,7 +497,8 @@ public class LoginActivity extends AppCompatActivity {
                             true,
                             false,
                             true,
-                            false
+                            false,
+                            new ArrayList<Test.TestType>()
                     );
 
                     storageManager.storePatient(Constants.KEY_PATIENT, patient);

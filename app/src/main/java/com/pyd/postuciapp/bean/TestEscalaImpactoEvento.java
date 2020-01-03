@@ -19,8 +19,8 @@ public class TestEscalaImpactoEvento extends Test {
 
     private Map<Integer, Answer> answers;
 
-    public TestEscalaImpactoEvento(String dni, Map<Integer, Answer> answers) {
-        super(dni);
+    public TestEscalaImpactoEvento(TestType id, String dni, Map<Integer, Answer> answers) {
+        super(id, dni);
 
         this.answers = answers;
     }
