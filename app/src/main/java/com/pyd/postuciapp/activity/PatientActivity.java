@@ -23,7 +23,7 @@ public class PatientActivity extends AppCompatActivity {
         findViewById(R.id.patient_pending_tests_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PatientActivity.this, TestIntroductionActivity.class);
+                Intent intent = new Intent(PatientActivity.this, PendingTestsActivity.class);
                 startActivity(intent);
             }
         });

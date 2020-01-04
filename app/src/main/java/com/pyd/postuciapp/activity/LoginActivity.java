@@ -41,6 +41,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -515,6 +517,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (mUserType == UserType.PATIENT) {
                     // TODO usar los campos introducidos
+                    List<Test.TestType> pendingTests = new ArrayList<>();
+                    pendingTests.add(Test.TestType.ESCALA_IMPACTO_EVENTO);
+
                     Patient patient = new Patient(
                             0,
                             "11223344A",
@@ -527,7 +532,7 @@ public class LoginActivity extends AppCompatActivity {
                             false,
                             true,
                             false,
-                            new ArrayList<Test.TestType>()
+                            pendingTests
                     );
 
                     storageManager.storePatient(Constants.KEY_PATIENT, patient);

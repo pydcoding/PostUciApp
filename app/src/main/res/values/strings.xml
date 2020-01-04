@@ -13,6 +13,7 @@
     <string name="cancel"><b>Cancelar</b></string>
     <string name="understood">Entendido</string>
     <string name="submit">Enviar</string>
+    <string name="do_test">Realizar</string>
 
     <string name="sign_up">Registro</string>
     <string name="dni_hint">DNI</string>
@@ -35,6 +36,7 @@
     <string name="patient_done_tests">Tests realizados</string>
     <string name="patient_contact">Contactar</string>
 
+    <string name="test_name">Test de escala de impacto de evento</string>
     <string name="test_template_question">1. He pensado acerca de ello sin quererlo:</string>
     <string-array name="four_option_button">
         <item>Nunca</item>

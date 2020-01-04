@@ -32,6 +32,10 @@
         <activity android:name=".activity.TestEscalaImpactoEventoActivity">
 
         </activity>
+
+        <activity android:name=".activity.PendingTestsActivity">
+
+        </activity>
     </application>
 
 </manifest>

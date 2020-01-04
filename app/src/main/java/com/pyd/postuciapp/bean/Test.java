@@ -5,9 +5,10 @@ import java.util.Date;
 public class Test {
 
     public enum TestType {
+        UNDEFINED(-1),
         ESCALA_IMPACTO_EVENTO(0);
 
-        public final int value;
+        public int value;
 
         TestType(int value) {
             this.value = value;
@@ -33,5 +34,14 @@ public class Test {
 
     public Date getTimeOfCompletion() {
         return timeOfCompletion;
+    }
+
+    public static String getNameByType(TestType type) {
+        switch (type) {
+            case ESCALA_IMPACTO_EVENTO:
+                return "Test de escala de impacto de evento";
+        }
+
+        return "Desconocido";
     }
 }
