@@ -7,11 +7,24 @@
     <include layout="@layout/toolbar"
         android:id="@+id/toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tests_pending_recycler_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/no_pending_tests_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_pending_tests"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tests_pending_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
 
 </LinearLayout>

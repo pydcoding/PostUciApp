@@ -30,6 +30,8 @@
     <string name="sign_in_info">Necesitas tener creada una cuenta para entrar en la aplicación</string>
     <string name="sign_up_header">Registro</string>
 
+    <string name="no_pending_tests">No tienes tests pendientes</string>
+
     <string name="progress_authenticating">Iniciando sesión</string>
 
     <string name="patient_pending_tests">Tests pendientes</string>

@@ -1,6 +1,7 @@
 package com.pyd.postuciapp.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,10 @@ public class PendingTestsActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setAdapter(testAdapter);
+
+        if (patient.getPendingTests().size() > 0) {
+            findViewById(R.id.no_pending_tests_textview).setVisibility(View.INVISIBLE);
+        }
     }
 
     /**
