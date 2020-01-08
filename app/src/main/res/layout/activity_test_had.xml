@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a1_question"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a1_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a1_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a1_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a1_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a1_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a1_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a1_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a1_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d1_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d1_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d1_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d1_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d1_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d1_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a1_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d1_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d1_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a2_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a2_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a2_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a2_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a2_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a2_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a2_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a2_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a2_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d2_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d2_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d2_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d2_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d2_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d2_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d2_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d2_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d2_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a3_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a3_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a3_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a3_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a3_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a3_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a3_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a3_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a3_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d3_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d3_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d3_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d3_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d3_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d3_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d3_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d3_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d3_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a4_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a4_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a4_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a4_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a4_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a4_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a4_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a4_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a4_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d4_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d4_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d4_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d4_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d4_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d4_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d4_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d4_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d4_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a5_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a5_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a5_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a5_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a5_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a5_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a5_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a5_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a5_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d5_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d5_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d5_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d5_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d5_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d5_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d5_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d5_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d5_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a6_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a6_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a6_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a6_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a6_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a6_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a6_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a6_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a6_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d6_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d6_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d6_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d6_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d6_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d6_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d6_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d6_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d6_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_a7_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_a7_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a7_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_a7_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a7_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_a7_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a7_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_a7_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_a7_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test_had_d7_question"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/had_d7_3_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d7_3"/>
+
+                <RadioButton
+                    android:id="@+id/had_d7_2_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d7_2"/>
+
+                <RadioButton
+                    android:id="@+id/had_d7_1_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d7_1"/>
+
+                <RadioButton
+                    android:id="@+id/had_d7_0_radio_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_had_d7_0"/>
+
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/cpb_grey"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

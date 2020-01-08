@@ -57,7 +57,7 @@ public class TestEscalaImpactoEventoActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.test_escala_impacto_evento);
+        setContentView(R.layout.activity_test_escala_impacto_evento);
 
         mSubmitButton = findViewById(R.id.test_submit_button);
         mSubmitButton.setEnabled(false);

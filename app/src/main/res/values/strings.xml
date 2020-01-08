@@ -51,20 +51,20 @@
     <string name="test_heading_eie">A continuación se le mostrará una lista de comentarios que hace la gente que ha pasado por una situación de vida estresante. Por favor, lea cada uno de ellos e indique con qué frecuencia estos comentarios fueron verdad para usted cuando ya estaba de alta en el hospital.</string>
     <string name="test_heading_had">Los médicos conocen la importancia de los factores emocionales en la mayoría de enfermedades. Si el médico sabe cual es el estado emocional del paciente puede prestarle entonces mejor ayuda.\n\nEste cuestionario ha sido confeccionado para ayudar a que su médico sepa cómo se siente usted afectiva y emocionalmente. No es preciso que preste atención a los números que aparecen a la izquierda. Lea cada pregunta y subraye la respuesta que usted considere que coincide con su propio estado emocional en la última semana.\n\nNo es necesario que piense mucho tiempo cada respuesta: en este cuestionario las respuestas espontáneas tiene más valor que las que se piensan mucho.</string>
 
-    <string name="test_had_a1_question">Me siento tenso/a o nervioso/a:</string>
-    <string name="test_had_d1_question">Sigo disfrutando de las cosas como siempre:</string>
-    <string name="test_had_a2_question">Siento una especie de temor como si algo malo fuera a suceder:</string>
-    <string name="test_had_d2_question">Soy capaz de reírme y ver el lado gracioso de las cosas:</string>
-    <string name="test_had_a3_question">Tengo la cabeza llena de preocupaciones:</string>
-    <string name="test_had_d3_question">Me siento alegre:</string>
-    <string name="test_had_a4_question">Soy capaz de permanecer sentado/a tranquilo/a y relajado/a:</string>
-    <string name="test_had_d4_question">Me siento lento/a y torpe:</string>
-    <string name="test_had_a5_question">Experimento una desagradable sensación de "nervios y hormigueos" en el estómago:</string>
-    <string name="test_had_d5_question">He perdido el interés por mi aspecto personal:</string>
-    <string name="test_had_a6_question">Me siento inquieto/a como si no pudiera parar de moverme:</string>
-    <string name="test_had_d6_question">Espero las cosas con ilusión:</string>
-    <string name="test_had_a7_question">Experiment de repente sensaciones de gran angustia o temor:</string>
-    <string name="test_had_d7_question">Soy capaz de disfrutar con un buen libro o con un buen programa de radio o televisión:</string>
+    <string name="test_had_a1_question">A.1. Me siento tenso/a o nervioso/a:</string>
+    <string name="test_had_d1_question">D.1. Sigo disfrutando de las cosas como siempre:</string>
+    <string name="test_had_a2_question">A.2. Siento una especie de temor como si algo malo fuera a suceder:</string>
+    <string name="test_had_d2_question">D.2. Soy capaz de reírme y ver el lado gracioso de las cosas:</string>
+    <string name="test_had_a3_question">A.3. Tengo la cabeza llena de preocupaciones:</string>
+    <string name="test_had_d3_question">D.3. Me siento alegre:</string>
+    <string name="test_had_a4_question">A.4. Soy capaz de permanecer sentado/a tranquilo/a y relajado/a:</string>
+    <string name="test_had_d4_question">D.4. Me siento lento/a y torpe:</string>
+    <string name="test_had_a5_question">A.5. Experimento una desagradable sensación de "nervios y hormigueos" en el estómago:</string>
+    <string name="test_had_d5_question">D.5. He perdido el interés por mi aspecto personal:</string>
+    <string name="test_had_a6_question">A.6. Me siento inquieto/a como si no pudiera parar de moverme:</string>
+    <string name="test_had_d6_question">D.6. Espero las cosas con ilusión:</string>
+    <string name="test_had_a7_question">A.7. Experimento de repente sensaciones de gran angustia o temor:</string>
+    <string name="test_had_d7_question">D.7. Soy capaz de disfrutar con un buen libro o con un buen programa de radio o televisión:</string>
 
     <string name="test_had_a1_3">3. Casi todo el día</string>
     <string name="test_had_a1_2">2. Gran parte del día</string>

@@ -17,7 +17,7 @@ public class TestIntroductionActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.test_heading);
+        setContentView(R.layout.activity_test_heading);
 
         final Test.TestType testType = (Test.TestType) getIntent().getSerializableExtra("type");
 

@@ -33,6 +33,10 @@
 
         </activity>
 
+        <activity android:name=".activity.TestHadActivity">
+
+        </activity>
+
         <activity android:name=".activity.PendingTestsActivity">
 
         </activity>
