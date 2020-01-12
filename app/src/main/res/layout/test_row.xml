@@ -16,16 +16,17 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/test_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
+            android:layout_weight="0.65"
+            android:layout_marginEnd="8dp"
             android:text="@string/test_name"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/test_do"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="0.35"
             android:background="@color/colorAccent"
             android:text="@string/do_test"
             android:textColor="@android:color/white"/>

@@ -6,7 +6,8 @@ public class Test {
 
     public enum TestType {
         UNDEFINED(-1),
-        ESCALA_IMPACTO_EVENTO(0);
+        ESCALA_IMPACTO_EVENTO(0),
+        HAD(1);
 
         public int value;
 
@@ -40,6 +41,8 @@ public class Test {
         switch (type) {
             case ESCALA_IMPACTO_EVENTO:
                 return "Test de escala de impacto de evento";
+            case HAD:
+                return "Hospital, ansiedad y depresión (autoadministrada)";
         }
 
         return "Desconocido";

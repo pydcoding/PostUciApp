@@ -2,6 +2,7 @@ package com.pyd.postuciapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -20,13 +21,18 @@ public class TestIntroductionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_heading);
 
         final Test.TestType testType = (Test.TestType) getIntent().getSerializableExtra("type");
+        AppCompatTextView heading = findViewById(R.id.test_heading_heading);
 
         switch (testType) {
             case ESCALA_IMPACTO_EVENTO:
-                ((AppCompatTextView)findViewById(R.id.test_heading_heading)).setText(getResources().getString(R.string.test_heading_eie));
+                heading.setText(getResources().getString(R.string.test_heading_eie));
+                break;
+            case HAD:
+                heading.setText(getResources().getString(R.string.test_heading_had));
                 break;
         }
 
+        heading.setMovementMethod(new ScrollingMovementMethod());
         findViewById(R.id.test_heading_understood_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +40,10 @@ public class TestIntroductionActivity extends AppCompatActivity {
                 switch (testType) {
                     case ESCALA_IMPACTO_EVENTO:
                         intent = new Intent(TestIntroductionActivity.this, TestEscalaImpactoEventoActivity.class);
+                        break;
+                    case HAD:
+                        intent = new Intent(TestIntroductionActivity.this, TestHadActivity.class);
+                        break;
                 }
 
                 startActivity(intent);

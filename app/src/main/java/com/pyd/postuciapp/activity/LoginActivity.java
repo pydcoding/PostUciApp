@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -519,6 +520,7 @@ public class LoginActivity extends AppCompatActivity {
                     // TODO usar los campos introducidos
                     List<Test.TestType> pendingTests = new ArrayList<>();
                     pendingTests.add(Test.TestType.ESCALA_IMPACTO_EVENTO);
+                    pendingTests.add(Test.TestType.HAD);
 
                     Patient patient = new Patient(
                             0,

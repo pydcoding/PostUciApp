@@ -23,6 +23,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a1_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -67,6 +68,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d1_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -111,6 +113,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a2_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -155,6 +158,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d2_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -199,6 +203,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a3_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -243,6 +248,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d3_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -287,6 +293,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a4_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -331,6 +338,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d4_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -375,6 +383,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a5_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -419,6 +428,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d5_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -463,6 +473,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a6_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -507,6 +518,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d6_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -551,6 +563,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_a7_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -595,6 +608,7 @@
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
+                android:id="@+id/had_d7_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -630,6 +644,17 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/cpb_grey"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/test_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:textColor="@android:color/white"
+                android:text="@string/submit"
+                android:enabled="false"
+                android:background="@color/colorAccent"/>
 
         </LinearLayout>
 
