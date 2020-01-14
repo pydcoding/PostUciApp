@@ -35,7 +35,6 @@
     <string name="progress_authenticating">Iniciando sesión</string>
 
     <string name="patient_pending_tests">Tests pendientes</string>
-    <string name="patient_done_tests">Tests realizados</string>
     <string name="patient_contact">Contactar</string>
 
     <string name="test_name">Test de escala de impacto de evento</string>
@@ -138,4 +137,7 @@
     <string name="test_eie_question_13">13. Traté de no pensar acerca de ello</string>
     <string name="test_eie_question_14">14. Cualquier recordatorio me traía nuevamente sentimientos referentes al hecho</string>
     <string name="test_eie_question_15">15. Mis sentimientos acerca de ello estaban como anestesiados</string>
+
+    <string name="contact_heading">Formulario de contacto:</string>
+    <string name="contact_hint">Escriba el mensaje aquí...</string>
 </resources>

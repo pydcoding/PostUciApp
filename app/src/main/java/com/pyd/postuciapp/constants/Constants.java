@@ -11,6 +11,7 @@ public class Constants {
     public static final String SERVER_SIGN_IN_PATIENT = "/sign_in_patient?";
     public static final String SERVER_SIGN_UP_PATIENT = "/sign_up_patient?";
     public static final String SERVER_SEND_TEST_RESULTS = "/test";
+    public static final String SERVER_SEND_MESSAGE= "/contact";
 
     public static final String SERVER_LOGIN_PARAM_DNI = "dni=";
     public static final String SERVER_LOGIN_PARAM_PASSWORD = "password=";

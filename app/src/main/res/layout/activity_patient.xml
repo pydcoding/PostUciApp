@@ -20,19 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:text="@string/patient_pending_tests"
-            android:textColor="@android:color/white"
-            android:background="@color/colorAccent"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/patient_done_tests_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/patient_done_tests"
+            android:text="@string/patient_pending_tests"
             android:textColor="@android:color/white"
             android:background="@color/colorAccent"/>
 

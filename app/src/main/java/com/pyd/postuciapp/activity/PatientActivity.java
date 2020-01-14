@@ -27,6 +27,14 @@ public class PatientActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.patient_contact_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PatientActivity.this, ContactActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**

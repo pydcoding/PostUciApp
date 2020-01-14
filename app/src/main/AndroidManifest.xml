@@ -40,6 +40,10 @@
         <activity android:name=".activity.PendingTestsActivity">
 
         </activity>
+
+        <activity android:name=".activity.ContactActivity">
+
+        </activity>
     </application>
 
 </manifest>
