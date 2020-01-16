@@ -34,7 +34,7 @@ public class PendingTestsActivity extends AppCompatActivity {
         Patient patient = sm.getPatient(Constants.KEY_PATIENT);
 
         RecyclerView recyclerView = findViewById(R.id.tests_pending_recycler_view);
-        TestAdapter testAdapter = new TestAdapter(this, patient.getPendingTests());
+        TestAdapter testAdapter = new TestAdapter(TestAdapter.Type.PATIENT_PENDING, this, patient.getPendingTests());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setAdapter(testAdapter);

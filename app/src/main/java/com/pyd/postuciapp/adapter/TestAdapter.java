@@ -19,13 +19,21 @@ import java.util.List;
 
 public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder> {
 
+    public enum Type {
+        PATIENT_PENDING,
+        MEDIC_DONE
+    }
+
     private Context mContext;
 
     private List<Test.TestType> mTests;
 
-    public TestAdapter(Context context, List<Test.TestType> tests) {
+    private Type mType;
+
+    public TestAdapter(Type type, Context context, List<Test.TestType> tests) {
         this.mContext = context;
         this.mTests = tests;
+        this.mType = type;
     }
 
     @NonNull
@@ -62,13 +70,29 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
         private void bind(final Test.TestType testType) {
             mTestNameTextView.setText(Test.getNameByType(testType));
 
+            if (mType == Type.PATIENT_PENDING) {
+                mDoButton.setText(mContext.getResources().getString(R.string.do_test));
+            } else {
+                mDoButton.setText(mContext.getResources().getString(R.string.view_results));
+            }
+
             mDoButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (mType == Type.PATIENT_PENDING) {
                         Intent intent = new Intent(mContext, TestIntroductionActivity.class);
                         intent.putExtra("type", testType);
 
                         mContext.startActivity(intent);
+
+                    } else {
+                        switch (testType) {
+                            case HAD:
+                                break;
+                            case ESCALA_IMPACTO_EVENTO:
+                                break;
+                        }
+                    }
                 }
             });
         }

@@ -7,8 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pyd.postuciapp.R;
+import com.pyd.postuciapp.adapter.TestAdapter;
 import com.pyd.postuciapp.bean.Message;
 import com.pyd.postuciapp.bean.Patient;
 
@@ -34,11 +36,14 @@ public class PatientDetailsActivity extends AppCompatActivity {
         mPatient = (Patient) intent.getSerializableExtra("patient");
         mMessages = (List<Message>) intent.getSerializableExtra("messages");
 
-        ((AppCompatTextView)findViewById(R.id.patient_name)).setText(mPatient.getName());
-        ((AppCompatTextView)findViewById(R.id.patient_dni)).setText(mPatient.getDni());
-        ((AppCompatTextView)findViewById(R.id.patient_grade)).setText(
+        ((AppCompatTextView) findViewById(R.id.patient_name)).setText(mPatient.getName());
+        ((AppCompatTextView) findViewById(R.id.patient_dni)).setText(mPatient.getDni());
+        ((AppCompatTextView) findViewById(R.id.patient_grade)).setText(
                 getResources().getString(R.string.patient_grade_template)
                         .replaceAll(PLACEHOLDER, Integer.toString(mPatient.calculateSeverity())));
+
+        RecyclerView pendingRecyclerView = findViewById(R.id.patient_done_tests_recycler_view);
+        TestAdapter testAdapter = new TestAdapter(TestAdapter.Type.MEDIC_DONE, this, mPatient.getDoneTests());
     }
 
     /**

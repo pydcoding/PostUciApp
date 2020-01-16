@@ -14,6 +14,7 @@
     <string name="understood">Entendido</string>
     <string name="submit">Enviar</string>
     <string name="do_test">Realizar</string>
+    <string name="view_results">Ver</string>
 
     <string name="sign_up">Registro</string>
     <string name="dni_hint">DNI</string>
