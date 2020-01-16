@@ -522,6 +522,8 @@ public class LoginActivity extends AppCompatActivity {
                     pendingTests.add(Test.TestType.ESCALA_IMPACTO_EVENTO);
                     pendingTests.add(Test.TestType.HAD);
 
+                    List<Test.TestType> doneTests = new ArrayList<>();
+
                     Patient patient = new Patient(
                             0,
                             "11223344A",
@@ -534,7 +536,8 @@ public class LoginActivity extends AppCompatActivity {
                             false,
                             true,
                             false,
-                            pendingTests
+                            pendingTests,
+                            doneTests
                     );
 
                     storageManager.storePatient(Constants.KEY_PATIENT, patient);

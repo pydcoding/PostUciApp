@@ -1,14 +1,12 @@
 package com.pyd.postuciapp.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -31,8 +29,6 @@ import com.pyd.postuciapp.utils.StorageManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.ref.WeakReference;
 
 public class ContactActivity extends AppCompatActivity {
 

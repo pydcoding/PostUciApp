@@ -32,7 +32,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
     @Override
     public TestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.test_row, parent, false );
+                .inflate(R.layout.test_row, parent, false);
 
         return new TestViewHolder(itemView);
     }

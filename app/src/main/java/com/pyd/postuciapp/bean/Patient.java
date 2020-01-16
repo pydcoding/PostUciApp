@@ -1,6 +1,7 @@
 package com.pyd.postuciapp.bean;
 
 import java.util.List;
+import java.util.Random;
 
 public class Patient {
 
@@ -12,6 +13,8 @@ public class Patient {
 
     // Lista de tests pendientes
     private List<Test.TestType> pendingTests;
+    // Lista de tests realizados
+    private List<Test.TestType> doneTests;
 
     // Si se ha ingresado más de 7 días, fecha de ingreso menos fecha de alta
     private boolean stayTime;
@@ -41,7 +44,8 @@ public class Patient {
             boolean pressureUlcer,
             boolean artificialNutrition,
             boolean doctorPetition,
-            List<Test.TestType> pendingTests) {
+            List<Test.TestType> pendingTests,
+            List<Test.TestType> doneTests) {
 
         this.id = id;
         this.dni = dni;
@@ -55,6 +59,7 @@ public class Patient {
         this.artificialNutrition = artificialNutrition;
         this.doctorPetition = doctorPetition;
         this.pendingTests = pendingTests;
+        this.doneTests = doneTests;
     }
 
     public int getId() {
@@ -148,4 +153,13 @@ public class Patient {
     public List<Test.TestType> getPendingTests() { return pendingTests; }
 
     public void setPendingTests(List<Test.TestType> pendingTests) { this.pendingTests = pendingTests; }
+
+    public List<Test.TestType> getDoneTests() { return doneTests; }
+
+    public void setDoneTests(List<Test.TestType> doneTests) { this.doneTests = doneTests; }
+
+    public int calculateSeverity() {
+        Random random = new Random();
+        return random.nextInt(101);
+    }
 }
