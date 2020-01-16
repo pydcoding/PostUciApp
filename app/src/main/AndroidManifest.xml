@@ -44,6 +44,10 @@
         <activity android:name=".activity.ContactActivity">
 
         </activity>
+
+        <activity android:name=".activity.PatientDetailsActivity">
+
+        </activity>
     </application>
 
 </manifest>

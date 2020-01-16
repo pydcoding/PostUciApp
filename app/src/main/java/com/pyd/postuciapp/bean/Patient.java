@@ -1,9 +1,10 @@
 package com.pyd.postuciapp.bean;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 
-public class Patient {
+public class Patient implements Serializable {
 
     // Numero de paciente
     private int id;

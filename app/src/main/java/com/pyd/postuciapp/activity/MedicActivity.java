@@ -11,11 +11,24 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.adapter.PatientAdapter;
 import com.pyd.postuciapp.bean.Message;
 import com.pyd.postuciapp.bean.Patient;
 import com.pyd.postuciapp.bean.Test;
+import com.pyd.postuciapp.constants.Constants;
+import com.pyd.postuciapp.network.VolleyManager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -37,7 +50,55 @@ public class MedicActivity extends AppCompatActivity {
 
         initToolbar();
 
-        new FakeConnection(this).execute();
+        if (Constants.DEBUG) {
+            new FakeConnection(this).execute();
+        } else {
+            final ProgressDialog dialog = ProgressDialog.show(this, "",
+                    "Por favor, espere...", true);
+
+            String url = Constants.SERVER_URL + Constants.SERVER_GET_PATIENTS;
+            StringRequest request = new StringRequest(
+                    Request.Method.GET,
+                    url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject object = new JSONObject(response);
+                                JSONArray array = object.getJSONArray("patients");
+
+                                mPatients = new ArrayList<>();
+                                for (int i = 0; i < array.length(); i++) {
+                                    String jsonPatient = array.getJSONObject(i).toString();
+
+                                    Gson gson = new Gson();
+                                    Patient patient = gson.fromJson(jsonPatient, Patient.class);
+
+                                    mPatients.add(patient);
+                                }
+
+                                // TODO recibir los mensajes también
+                                mMessages = new HashMap<>();
+
+                                dialog.dismiss();
+
+                                initRecyclerView();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            dialog.dismiss();
+                            // TODO mostrar snackbar
+                        }
+                    });
+
+            VolleyManager.getInstance(this).addToRequestQueue(request);
+        }
     }
 
     /**

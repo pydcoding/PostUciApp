@@ -97,7 +97,7 @@ public class ContactActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(string);
 
-                        String url = Constants.SERVER_URL + Constants.SERVER_SEND_TEST_RESULTS;
+                        String url = Constants.SERVER_URL + Constants.SERVER_SEND_MESSAGE;
                         JsonObjectRequest request = new JsonObjectRequest(
                                 Request.Method.POST,
                                 url,
@@ -113,6 +113,7 @@ public class ContactActivity extends AppCompatActivity {
                                 new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
+                                        dialog.dismiss();
                                         // TODO mostrar snackbar
                                     }
                                 });

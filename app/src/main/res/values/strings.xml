@@ -49,6 +49,13 @@
     <string name="patient_messages">Hay 2 mensaje/s por leer</string>
     <string name="patient_messages_template">Hay %1 mensaje/s por leer</string>
 
+    <string name="patient_pending_tests_heading">Tests pendientes</string>
+    <string name="patient_done_tests_heading">Tests realizados</string>
+    <string name="patient_messages_heading">Mensajes sin leer</string>
+    <string name="patient_no_pending_tests">No hay tests pendientes</string>
+    <string name="patient_no_done_tests">No hay tests realizados</string>
+    <string name="patient_no_messages">No hay mensajes por leer</string>
+
     <string name="test_name">Test de escala de impacto de evento</string>
     <string name="test_template_question">1. He pensado acerca de ello sin quererlo:</string>
     <string-array name="four_option_button">
@@ -151,5 +158,5 @@
     <string name="test_eie_question_15">15. Mis sentimientos acerca de ello estaban como anestesiados</string>
 
     <string name="contact_heading">Formulario de contacto:</string>
-    <string name="contact_hint">Escriba el mensaje aquí...</string>
+    <string name="contact_hint">Escriba el mensaje aquí…</string>
 </resources>

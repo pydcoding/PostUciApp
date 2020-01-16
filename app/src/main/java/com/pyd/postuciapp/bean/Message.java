@@ -1,8 +1,9 @@
 package com.pyd.postuciapp.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Message {
+public class Message implements Serializable {
 
     private String dni;
     private Date timeOfCreation;
