@@ -52,6 +52,7 @@ public class MedicActivity extends AppCompatActivity {
 
         if (Constants.DEBUG) {
             new FakeConnection(this).execute();
+
         } else {
             final ProgressDialog dialog = ProgressDialog.show(this, "",
                     "Por favor, espere...", true);
@@ -113,6 +114,12 @@ public class MedicActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void initRecyclerView() {
@@ -206,7 +213,7 @@ public class MedicActivity extends AppCompatActivity {
                         Arrays.asList(Test.TestType.ESCALA_IMPACTO_EVENTO),
                         Arrays.asList(Test.TestType.HAD));
 
-                mPatients = Arrays.asList(patient1, patient2, patient3, patient4);
+                mPatients = new ArrayList<>(Arrays.asList(patient1, patient2, patient3, patient4));
                 mMessages = new HashMap<>();
 
             } catch (InterruptedException e) {

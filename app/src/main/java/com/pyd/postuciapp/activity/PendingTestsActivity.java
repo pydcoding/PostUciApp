@@ -44,6 +44,12 @@ public class PendingTestsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     /**
      * Inicializa la toolbar.
      */

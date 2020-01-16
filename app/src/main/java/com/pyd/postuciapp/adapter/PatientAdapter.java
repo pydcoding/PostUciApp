@@ -12,6 +12,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pyd.postuciapp.R;
+import com.pyd.postuciapp.activity.PatientDetailsActivity;
 import com.pyd.postuciapp.bean.Message;
 import com.pyd.postuciapp.bean.Patient;
 
@@ -76,15 +77,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
             mMessagesTextView = itemView.findViewById(R.id.patient_messages);
 
             mViewButton = itemView.findViewById(R.id.view_patient);
-            mViewButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
         }
 
-        void bind(Context context, Patient patient, List<Message> messages) {
+        void bind(@NonNull Context context, @NonNull final Patient patient, @NonNull final List<Message> messages) {
             mNameTextView.setText(patient.getName());
             mDniTextView.setText(patient.getDni());
 
@@ -103,6 +98,18 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
             mMessagesTextView.setText(
                     context.getResources().getString(R.string.patient_messages_template)
                             .replaceAll(PLACEHOLDER, Integer.toString(messages.size())));
+
+            mViewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, PatientDetailsActivity.class);
+
+                    intent.putExtra("patient", patient);
+                    intent.putExtra("messages", (ArrayList<Message>) messages);
+
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 }

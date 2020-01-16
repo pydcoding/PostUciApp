@@ -483,6 +483,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Avanzamos automaticamente a la siguiente pantalla.
                 Intent intent = new Intent(LoginActivity.this, (userType == UserType.PATIENT) ? PatientActivity.class : MedicActivity.class);
 
+                mAlertDialog.dismiss();
+
                 startActivity(intent);
 
                 finish();

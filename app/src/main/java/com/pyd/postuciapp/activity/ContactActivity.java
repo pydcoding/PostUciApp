@@ -142,6 +142,12 @@ public class ContactActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     @SuppressWarnings("StaticFieldLeak")
     private class FakeConnection extends AsyncTask<Void, Void, Void> {
 
