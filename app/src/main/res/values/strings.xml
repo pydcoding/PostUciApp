@@ -37,7 +37,11 @@
 
     <string name="patient_pending_tests">Tests pendientes</string>
     <string name="patient_contact">Contactar</string>
+    <string name="patient_useful_info">Información de interés</string>
     <string name="patient_view">Ver</string>
+
+    <string name="youtube_video">Después de la UCI</string>
+    <string name="breathing_exercise">Ejercicios respiratorios</string>
 
     <string name="patient_name">Daniel Mancebo Aldea</string>
     <string name="patient_dni">47478822Y</string>
