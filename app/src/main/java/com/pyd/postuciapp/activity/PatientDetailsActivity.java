@@ -13,6 +13,7 @@ import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.adapter.TestAdapter;
 import com.pyd.postuciapp.bean.Message;
 import com.pyd.postuciapp.bean.Patient;
+import com.pyd.postuciapp.bean.Test;
 
 import java.util.List;
 
@@ -41,6 +42,16 @@ public class PatientDetailsActivity extends AppCompatActivity {
         ((AppCompatTextView) findViewById(R.id.patient_grade)).setText(
                 getResources().getString(R.string.patient_grade_template)
                         .replaceAll(PLACEHOLDER, Integer.toString(mPatient.calculateSeverity())));
+
+        // Tests pendientes
+        StringBuilder pendingTests = new StringBuilder();
+        for (Test.TestType testType : mPatient.getPendingTests()) {
+            pendingTests.append(" - ");
+            pendingTests.append(Test.getNameByType(testType));
+            pendingTests.append("\n");
+        }
+
+        ((AppCompatTextView) findViewById(R.id.pending_tests_textview)).setText(pendingTests);
 
         RecyclerView pendingRecyclerView = findViewById(R.id.patient_done_tests_recycler_view);
         TestAdapter testAdapter = new TestAdapter(TestAdapter.Type.MEDIC_DONE, this, mPatient.getDoneTests());
