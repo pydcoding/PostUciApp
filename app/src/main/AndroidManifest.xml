@@ -48,6 +48,10 @@
         <activity android:name=".activity.PatientDetailsActivity">
 
         </activity>
+
+        <activity android:name=".activity.UsefulInfoActivity">
+
+        </activity>
     </application>
 
 </manifest>
