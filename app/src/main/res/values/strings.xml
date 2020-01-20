@@ -164,4 +164,14 @@
 
     <string name="contact_heading">Formulario de contacto:</string>
     <string name="contact_hint">Escriba el mensaje aquí…</string>
+
+    <string name="breathing_exercise_header">Los ejercicios respiratorios tienen como objetivo disminuir el trabajo respiratorio, mejorar la oxigenación y aumentar la función respiratoria. Se realizarán una vez al día.</string>
+    <string name="breathing_exercise_text_0">Respiración con los labios fruncidos</string>
+    <string name="breathing_exercise_text_1">1. Ponga los labios como para apagar una vela o silbar\n2. Inspire lentamente a través de la nariz con la boca cerrada\n3. Espire lentamente a través de los labios semicerrados\n4. La espiración debe durar el doble de la inspiración</string>
+    <string name="breathing_exercise_text_2">Respiración diafragmática</string>
+    <string name="breathing_exercise_text_3">1. Sentado, con las rodillas flexionadas, colocar las manos sobre el abdomen.\n2. Inspirar profundamente a través de la nariz manteniendo la boca cerrada. Al inspirar, el abdomen se distiende elevando las manos.\n3. Colocar los labios como si fuese a silbar y espirar lenta y suavemente de forma pasiva, haciendo un sonido silbante sin hinchar los carrillos. Al ir expulsando el aire, los músculos abdominales se hunden, volviendo a la posición original.</string>
+    <string name="breathing_exercise_text_4">Ejercicios de expansión pulmunar</string>
+    <string name="breathing_exercise_text_5">1. Inspirar profundamente mientras empuja el tórax expandiéndolo contra la presión de las manos.\n2. Colocar las manos sobre la zona del torax que hay que expandir aplicando una presión moderada.\n3. Mantener unos segundos la máxima inspiración posible y comenzar a espirar el aire lentamente.\n4. Al final de la espiración, las manos realizan una ligera vibración sobre el área.</string>
+    <string name="breathing_exercise_text_4">Ejercicios de expansión pulmunar</string>
+    <string name="breathing_exercise_text_4">Ejercicios de expansión pulmunar</string>
 </resources>

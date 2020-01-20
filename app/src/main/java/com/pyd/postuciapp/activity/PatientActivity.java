@@ -43,6 +43,14 @@ public class PatientActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.breathing_exercise_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PatientActivity.this, BreathingExerciseActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**
