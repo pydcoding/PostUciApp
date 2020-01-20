@@ -35,6 +35,14 @@ public class UsefulInfoActivity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.breathing_exercise_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UsefulInfoActivity.this, BreathingExerciseActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
