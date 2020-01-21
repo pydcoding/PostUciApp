@@ -174,23 +174,23 @@ public class Patient implements Serializable {
         }
 
         if (this.artificialNutrition) {
-            severity += 4;
+            severity += 8;
         }
 
         if (this.doctorPetition) {
-            severity += 4;
+            severity += 8;
         }
 
         if (this.invasiveDevice) {
-            severity += 4;
+            severity += 8;
         }
 
         if (this.neuromuscularDisease) {
-            severity += 4;
+            severity += 8;
         }
 
         if (this.pressureUlcer) {
-            severity += 4;
+            severity += 8;
         }
 
         return severity;
