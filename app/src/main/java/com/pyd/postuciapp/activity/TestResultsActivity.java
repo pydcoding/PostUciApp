@@ -1,6 +1,7 @@
 package com.pyd.postuciapp.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.constants.Constants;
 import com.pyd.postuciapp.network.VolleyManager;
+
+import java.lang.ref.WeakReference;
 
 public class TestResultsActivity extends AppCompatActivity {
 
@@ -107,7 +110,24 @@ public class TestResultsActivity extends AppCompatActivity {
         protected void onPostExecute(Void unused) {
             mDialog.dismiss();
 
-            ((AppCompatTextView) findViewById(R.id.test_results_textview)).setText("Test HAD:\n\nPuntuación obtenida: 12");
+            StringBuilder text = new StringBuilder();
+            text.append("Test HAD:\n\n");
+            text.append(getResources().getString(R.string.test_had_a1_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a1_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d1_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d1_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a2_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a2_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d2_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d2_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a3_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a3_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d3_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d3_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a4_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a4_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d4_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d4_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a5_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a5_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d5_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d5_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a6_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a6_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d6_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d6_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_a7_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_a7_1) + "\n\n");
+            text.append(getResources().getString(R.string.test_had_d7_question) + "\n - Respondió: " + getResources().getString(R.string.test_had_d7_1) + "\n\n");
+
+            ((AppCompatTextView) findViewById(R.id.test_results_textview)).setText(text);
         }
     }
 }
