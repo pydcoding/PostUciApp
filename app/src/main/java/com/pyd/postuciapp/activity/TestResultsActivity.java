@@ -33,7 +33,10 @@ public class TestResultsActivity extends AppCompatActivity {
         if (Constants.DEBUG) {
             new FakeConnection(dialog).execute();
         } else {
-            String url = Constants.SERVER_URL + Constants.SERVER_GET_RESULTS;
+            // TODO obtener el DNI y tipo de test de la pantalla anterior
+            String url = Constants.SERVER_URL + Constants.SERVER_GET_RESULTS
+                    + Constants.SERVER_RESULTS_PARAM_DNI + "12345678Y" + "&"
+                    + Constants.SERVER_RESULTS_PARAM_TEST_TYPE + "1";
 
             StringRequest request = new StringRequest(
                     Request.Method.GET,
