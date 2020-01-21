@@ -160,7 +160,39 @@ public class Patient implements Serializable {
     public void setDoneTests(List<Test.TestType> doneTests) { this.doneTests = doneTests; }
 
     public int calculateSeverity() {
-        Random random = new Random();
-        return random.nextInt(101);
+        int severity = 0;
+        if (this.stayTime) {
+            severity += 20;
+        }
+
+        if (this.mecanicVentilation) {
+            severity += 20;
+        }
+
+        if (this.delirium) {
+            severity += 20;
+        }
+
+        if (this.artificialNutrition) {
+            severity += 4;
+        }
+
+        if (this.doctorPetition) {
+            severity += 4;
+        }
+
+        if (this.invasiveDevice) {
+            severity += 4;
+        }
+
+        if (this.neuromuscularDisease) {
+            severity += 4;
+        }
+
+        if (this.pressureUlcer) {
+            severity += 4;
+        }
+
+        return severity;
     }
 }
