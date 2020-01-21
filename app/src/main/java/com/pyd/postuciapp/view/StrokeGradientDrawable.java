@@ -2,36 +2,36 @@ package com.pyd.postuciapp.view;
 
 import android.graphics.drawable.GradientDrawable;
 
-public class StrokeGradientDrawable {
+class StrokeGradientDrawable {
 
     private int mStrokeWidth;
     private int mStrokeColor;
 
     private GradientDrawable mGradientDrawable;
 
-    public StrokeGradientDrawable(GradientDrawable drawable) {
+    StrokeGradientDrawable(GradientDrawable drawable) {
         mGradientDrawable = drawable;
     }
 
-    public int getStrokeWidth() {
+    private int getStrokeWidth() {
         return mStrokeWidth;
     }
 
-    public void setStrokeWidth(int strokeWidth) {
+    void setStrokeWidth(int strokeWidth) {
         mStrokeWidth = strokeWidth;
         mGradientDrawable.setStroke(strokeWidth, getStrokeColor());
     }
 
-    public int getStrokeColor() {
+    private int getStrokeColor() {
         return mStrokeColor;
     }
 
-    public void setStrokeColor(int strokeColor) {
+    void setStrokeColor(int strokeColor) {
         mStrokeColor = strokeColor;
         mGradientDrawable.setStroke(getStrokeWidth(), strokeColor);
     }
 
-    public GradientDrawable getGradientDrawable() {
+    GradientDrawable getGradientDrawable() {
         return mGradientDrawable;
     }
 }

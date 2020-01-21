@@ -19,15 +19,6 @@ public class StorageManager {
     }
 
     /**
-     * Metodo que elimina las preferencias.
-     *
-     * @return true si se han borrado correctamentes
-     */
-    public synchronized boolean clear() {
-        return mEditor.clear().commit();
-    }
-
-    /**
      * Metodo que inserta un booleano.
      *
      * @param key: clave con la que guardar el valor.
@@ -39,15 +30,6 @@ public class StorageManager {
         mEditor.putBoolean(key, value);
 
         return mEditor.commit();
-    }
-
-    /**
-     * Metodo que devuelve un booleano con la clave recibida.
-     *
-     * @return boolean
-     */
-    public boolean getBoolean(String key) {
-        return mSharedPreferences.getBoolean(key, false);
     }
 
     /**
@@ -84,18 +66,6 @@ public class StorageManager {
         mEditor.putString(key, string);
 
         return mEditor.commit();
-    }
-
-    /**
-     * Metodo que devuelve un objeto de tipo Medic.
-     * @return objeto de tipo Medic.
-     */
-    public Medic getMedic(String key)
-    {
-        final Gson gson = new Gson();
-        final String json = mSharedPreferences.getString(key, null);
-
-        return gson.fromJson(json, Medic.class);
     }
 
     /**

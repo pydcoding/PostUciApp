@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 class MorphingAnimation {
 
-    public static final int DURATION_NORMAL = 400;
-    public static final int DURATION_INSTANT = 1;
+    static final int DURATION_NORMAL = 400;
+    static final int DURATION_INSTANT = 1;
 
     private OnAnimationEndListener mListener;
 
@@ -34,56 +34,56 @@ class MorphingAnimation {
     private TextView mView;
     private StrokeGradientDrawable mDrawable;
 
-    public MorphingAnimation(TextView viewGroup, StrokeGradientDrawable drawable) {
+    MorphingAnimation(TextView viewGroup, StrokeGradientDrawable drawable) {
         mView = viewGroup;
         mDrawable = drawable;
     }
 
-    public void setDuration(int duration) {
+    void setDuration(int duration) {
         mDuration = duration;
     }
 
-    public void setListener(OnAnimationEndListener listener) {
+    void setListener(OnAnimationEndListener listener) {
         mListener = listener;
     }
 
-    public void setFromWidth(int fromWidth) {
+    void setFromWidth(int fromWidth) {
         mFromWidth = fromWidth;
     }
 
-    public void setToWidth(int toWidth) {
+    void setToWidth(int toWidth) {
         mToWidth = toWidth;
     }
 
-    public void setFromColor(int fromColor) {
+    void setFromColor(int fromColor) {
         mFromColor = fromColor;
     }
 
-    public void setToColor(int toColor) {
+    void setToColor(int toColor) {
         mToColor = toColor;
     }
 
-    public void setFromStrokeColor(int fromStrokeColor) {
+    void setFromStrokeColor(int fromStrokeColor) {
         mFromStrokeColor = fromStrokeColor;
     }
 
-    public void setToStrokeColor(int toStrokeColor) {
+    void setToStrokeColor(int toStrokeColor) {
         mToStrokeColor = toStrokeColor;
     }
 
-    public void setFromCornerRadius(float fromCornerRadius) {
+    void setFromCornerRadius(float fromCornerRadius) {
         mFromCornerRadius = fromCornerRadius;
     }
 
-    public void setToCornerRadius(float toCornerRadius) {
+    void setToCornerRadius(float toCornerRadius) {
         mToCornerRadius = toCornerRadius;
     }
 
-    public void setPadding(float padding) {
+    void setPadding(float padding) {
         mPadding = padding;
     }
 
-    public void start() {
+    void start() {
         ValueAnimator widthAnimation = ValueAnimator.ofInt(mFromWidth, mToWidth);
         final GradientDrawable gradientDrawable = mDrawable.getGradientDrawable();
         widthAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

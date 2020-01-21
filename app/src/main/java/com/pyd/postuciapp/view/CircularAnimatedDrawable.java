@@ -22,7 +22,7 @@ class CircularAnimatedDrawable extends Drawable implements Animatable {
     private static final Interpolator SWEEP_INTERPOLATOR = new DecelerateInterpolator();
     private static final int ANGLE_ANIMATOR_DURATION = 2000;
     private static final int SWEEP_ANIMATOR_DURATION = 600;
-    public static final int MIN_SWEEP_ANGLE = 30;
+    private static final int MIN_SWEEP_ANGLE = 30;
     private final RectF fBounds = new RectF();
 
     private ObjectAnimator mObjectAnimatorSweep;
@@ -35,7 +35,7 @@ class CircularAnimatedDrawable extends Drawable implements Animatable {
     private float mBorderWidth;
     private boolean mRunning;
 
-    public CircularAnimatedDrawable(int color, float borderWidth) {
+    CircularAnimatedDrawable(int color, float borderWidth) {
         mBorderWidth = borderWidth;
 
         mPaint = new Paint();
@@ -179,22 +179,21 @@ class CircularAnimatedDrawable extends Drawable implements Animatable {
         return mRunning;
     }
 
-    public void setCurrentGlobalAngle(float currentGlobalAngle) {
+    private void setCurrentGlobalAngle(float currentGlobalAngle) {
         mCurrentGlobalAngle = currentGlobalAngle;
         invalidateSelf();
     }
 
-    public float getCurrentGlobalAngle() {
+    private float getCurrentGlobalAngle() {
         return mCurrentGlobalAngle;
     }
 
-    public void setCurrentSweepAngle(float currentSweepAngle) {
+    private void setCurrentSweepAngle(float currentSweepAngle) {
         mCurrentSweepAngle = currentSweepAngle;
         invalidateSelf();
     }
 
-    public float getCurrentSweepAngle() {
+    private float getCurrentSweepAngle() {
         return mCurrentSweepAngle;
     }
-
 }

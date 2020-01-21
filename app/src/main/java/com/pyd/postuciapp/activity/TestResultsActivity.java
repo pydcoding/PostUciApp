@@ -1,7 +1,6 @@
 package com.pyd.postuciapp.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -17,8 +16,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.constants.Constants;
 import com.pyd.postuciapp.network.VolleyManager;
-
-import java.lang.ref.WeakReference;
 
 public class TestResultsActivity extends AppCompatActivity {
 

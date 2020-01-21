@@ -16,8 +16,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.adapter.PatientAdapter;
 import com.pyd.postuciapp.bean.Message;

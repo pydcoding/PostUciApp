@@ -38,5 +38,4 @@ public class BreathingExerciseActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-
 }

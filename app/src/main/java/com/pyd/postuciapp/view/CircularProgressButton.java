@@ -271,10 +271,6 @@ public class CircularProgressButton extends AppCompatButton {
         mProgressDrawable.draw(canvas);
     }
 
-    public boolean isIndeterminateProgressMode() {
-        return mIndeterminateProgressMode;
-    }
-
     public void setIndeterminateProgressMode(boolean indeterminateProgressMode) {
         this.mIndeterminateProgressMode = indeterminateProgressMode;
     }
@@ -583,34 +579,6 @@ public class CircularProgressButton extends AppCompatButton {
         background.getGradientDrawable().setColor(color);
     }
 
-    public void setStrokeColor(int color) {
-        background.setStrokeColor(color);
-    }
-
-    public String getIdleText() {
-        return mIdleText;
-    }
-
-    public String getCompleteText() {
-        return mCompleteText;
-    }
-
-    public String getErrorText() {
-        return mErrorText;
-    }
-
-    public void setIdleText(String text) {
-        mIdleText = text;
-    }
-
-    public void setCompleteText(String text) {
-        mCompleteText = text;
-    }
-
-    public void setErrorText(String text) {
-        mErrorText = text;
-    }
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -651,7 +619,7 @@ public class CircularProgressButton extends AppCompatButton {
         private boolean mConfigurationChanged;
         private int mProgress;
 
-        public SavedState(Parcelable parcel) {
+        private SavedState(Parcelable parcel) {
             super(parcel);
         }
 

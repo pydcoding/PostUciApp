@@ -16,7 +16,7 @@ class CircularProgressDrawable extends Drawable {
     private int mStrokeWidth;
     private int mStrokeColor;
 
-    public CircularProgressDrawable(int size, int strokeWidth, int strokeColor) {
+    CircularProgressDrawable(int size, int strokeWidth, int strokeColor) {
         mSize = size;
         mStrokeWidth = strokeWidth;
         mStrokeColor = strokeColor;
@@ -24,11 +24,11 @@ class CircularProgressDrawable extends Drawable {
         mSweepAngle = 0;
     }
 
-    public void setSweepAngle(float sweepAngle) {
+    void setSweepAngle(float sweepAngle) {
         mSweepAngle = sweepAngle;
     }
 
-    public int getSize() {
+    private int getSize() {
         return mSize;
     }
 
