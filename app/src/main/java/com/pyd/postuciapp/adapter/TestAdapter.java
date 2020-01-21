@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pyd.postuciapp.R;
 import com.pyd.postuciapp.activity.TestIntroductionActivity;
+import com.pyd.postuciapp.activity.TestResultsActivity;
 import com.pyd.postuciapp.bean.Test;
 
 import java.util.List;
@@ -86,12 +87,9 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
                         mContext.startActivity(intent);
 
                     } else {
-                        switch (testType) {
-                            case HAD:
-                                break;
-                            case ESCALA_IMPACTO_EVENTO:
-                                break;
-                        }
+                        Intent intent = new Intent(mContext, TestResultsActivity.class);
+
+                        mContext.startActivity(intent);
                     }
                 }
             });

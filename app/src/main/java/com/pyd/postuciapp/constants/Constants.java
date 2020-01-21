@@ -13,6 +13,7 @@ public class Constants {
     public static final String SERVER_SEND_TEST_RESULTS = "/test";
     public static final String SERVER_SEND_MESSAGE= "/contact";
     public static final String SERVER_GET_PATIENTS= "/patients";
+    public static final String SERVER_GET_RESULTS= "/results";
 
     public static final String SERVER_LOGIN_PARAM_DNI = "dni=";
     public static final String SERVER_LOGIN_PARAM_PASSWORD = "password=";

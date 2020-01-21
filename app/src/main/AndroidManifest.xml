@@ -56,6 +56,10 @@
         <activity android:name=".activity.BreathingExerciseActivity">
 
         </activity>
+
+        <activity android:name=".activity.TestResultsActivity">
+
+        </activity>
     </application>
 
 </manifest>

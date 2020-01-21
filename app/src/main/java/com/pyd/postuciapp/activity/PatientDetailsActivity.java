@@ -2,11 +2,13 @@ package com.pyd.postuciapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pyd.postuciapp.R;
@@ -44,17 +46,26 @@ public class PatientDetailsActivity extends AppCompatActivity {
                         .replaceAll(PLACEHOLDER, Integer.toString(mPatient.calculateSeverity())));
 
         // Tests pendientes
-        StringBuilder pendingTests = new StringBuilder();
-        for (Test.TestType testType : mPatient.getPendingTests()) {
-            pendingTests.append(" - ");
-            pendingTests.append(Test.getNameByType(testType));
-            pendingTests.append("\n");
-        }
+        if (!mPatient.getPendingTests().isEmpty()) {
+            StringBuilder pendingTests = new StringBuilder();
+            for (Test.TestType testType : mPatient.getPendingTests()) {
+                pendingTests.append(" - ");
+                pendingTests.append(Test.getNameByType(testType));
+                pendingTests.append("\n");
+            }
 
-        ((AppCompatTextView) findViewById(R.id.pending_tests_textview)).setText(pendingTests);
+            ((AppCompatTextView) findViewById(R.id.pending_tests_textview)).setText(pendingTests);
+        }
 
         RecyclerView pendingRecyclerView = findViewById(R.id.patient_done_tests_recycler_view);
         TestAdapter testAdapter = new TestAdapter(TestAdapter.Type.MEDIC_DONE, this, mPatient.getDoneTests());
+
+        pendingRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        pendingRecyclerView.setAdapter(testAdapter);
+
+        if (!mPatient.getDoneTests().isEmpty()) {
+            findViewById(R.id.patient_no_done_tests).setVisibility(View.GONE);
+        }
     }
 
     /**
